@@ -1,0 +1,80 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background: linear-gradient(to bottom, rgba(246,246,246,1) 0%,rgba(240,240,240,1) 100%);	
+
+}
+
+#payment {
+}
+
+.payment {
+	width: 75%;
+	margin: auto;
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,.25);
+	background-color: rgba(255,255,255,1);
+
+}
+
+.payment h1, h2, h3, h4, h5, h6 {
+	font-size: 1.5em;
+	text-align: center;
+	color: rgba(255,255,255,1);
+	background: linear-gradient(to bottom, rgba(50,50,50,1) 50%,rgba(25,25,25,1) 100%);
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,.25);
+}
+
+.payment h2 {
+	font-size: 1.5em;
+}
+
+.payment h3 {
+	font-size: 1em;
+}
+.payment input {
+	margin: 3px 7px;
+}
+
+.payment table {
+	border: 1px solid rgba(0,0,0,.50);
+}
+
+.payment td {
+	border: 1px solid rgba(0,0,0,.15);
+	background: linear-gradient(to bottom, rgba(248,248,248,1) 0%,rgba(240,240,240,1) 100%);
+}
+
+.payment tr {
+
+}
+
+.payment th {
+	padding: 5px;
+	margin: 7px 3px;
+	border-radius: 2px;
+	color: rgba(255,255,255,1);
+	background: linear-gradient(to bottom, rgba(50,50,50,1) 50%,rgba(25,25,25,1) 100%);
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,.25);
+}
+
+.payment span {
+	
+}
+
+.payment table {
+	width: 50%;
+	margin: 3% auto;
+}
+
+.smt-btn-sbt {
+	padding: 5px 205px !important;
+	color: rgba(255,255,255,1);
+	background: linear-gradient(to bottom, rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%);
+}
+
+.smt-btn-sbt:hover {
+	transition: all ease .5s;
+	background: linear-gradient(to bottom, rgba(25,150,67,1) 0%,rgba(25,124,54,1) 100%);
+	box-shadow: 0px 3px 3px 0px rgba(0,0,0,.25);
+}

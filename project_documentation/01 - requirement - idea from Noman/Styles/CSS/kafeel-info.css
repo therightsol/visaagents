@@ -1,0 +1,116 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background: linear-gradient(to bottom, rgba(248,248,248,1) 0%,rgba(242,242,242,1) 100%);
+}
+
+#kafeel-info {
+
+}
+
+.kafeel-info {
+	width: 80%;
+	margin: auto;
+	border-radius: 1px;
+	background: rgba(255,255,255,1);
+	box-shadow: 0px 1px 3px 0px rgba(0,0,0,.25);
+
+}
+
+.kafeel-info h1, h2, h3, h4, h5, h6 {
+	text-align: center;
+	color: rgba(255,255,255,1);
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,.25);
+	background: linear-gradient(to bottom, rgba(50,50,50,1) 50%,rgba(25,25,25,1) 100%);
+
+}
+
+.kafeel-info h2 {
+	font-size: 1.5em;
+}
+
+.kafeel-info h3 {
+	font-size: 1em;
+}
+
+.kafeel-info textarea {
+	margin: -12px 10%;
+}
+
+.kafeel-info table {
+	width: 80%;
+	margin: 25px auto;
+}
+
+.kafeel-info tr {
+	background: linear-gradient(to bottom, rgba(248,248,248,1) 0%,rgba(242,242,242,1) 100%);
+}
+
+.kafeel-info td {
+	padding: 5px;
+	border: 1px solid rgba(0,0,0,.12);
+	background: linear-gradient(to bottom, rgba(248,248,248,1) 0%,rgba(242,242,242,1) 100%);
+}
+	
+.kafeel-info th {
+	padding: 5px;
+	border-radius: 2px;
+	color: rgba(255,255,255,1);
+	background: linear-gradient(to bottom, rgba(50,50,50,1) 50%,rgba(25,25,25,1) 100%);
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,.25);
+}
+
+.kafeel-info legend {
+	font-weight:bold;
+	margin: 14px 15px;
+	position: absolute;
+	font-size: 1.5em;
+	text-shadow: 1px 2px 5px rgba(0,0,0,1);
+	color: rgba(255,255,255,1);
+}
+
+#search-container {
+	
+}
+
+.search-container {
+	width: 80%;
+	margin: 24px auto;
+	border-radius: 2px;
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,.50);
+	background: linear-gradient(to bottom, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);
+}
+
+.search-container input {
+	padding: 8px 16px 8px 12px;
+	border: none;
+	border-radius: 2px;
+	background-color: rgba(255,255,255,1);
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,.50);
+}
+
+
+.busi-no {
+	margin: 12px 5px 12px 250px;
+	
+}
+
+.id-no {
+	margin: 12px 5px 12px 5px;
+
+}
+
+.smt-btn {
+	color: rgba(255,255,255,1);
+	border: none !important;
+	font-size: 18px;
+	padding: 7px 16px !important;
+	text-shadow: 1px 1px 2px rgba(0,0,0,1);
+	background: linear-gradient(to bottom, rgba(255,214,94,1) 0%,rgba(254,191,4,1) 100%);
+}
+.smt-btn:hover {
+	background: linear-gradient(to bottom, rgba(254,187,187,1) 0%,rgba(254,144,144,1) 45%,rgba(255,92,92,1) 100%);
+	transition: all ease 0.5s;
+}
+

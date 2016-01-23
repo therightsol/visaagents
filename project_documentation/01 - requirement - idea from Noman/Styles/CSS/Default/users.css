@@ -1,0 +1,101 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/* Users Container */
+#users-container {
+}
+
+.users-container {
+	width: 32%;
+	margin: auto;
+	height: 265px;
+	margin-top: 7%;
+	border-radius: 3px;
+	color: rgba(0,0,0,.50);
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,.25);
+	background-color: rgba(0,0,0,.75);
+}
+
+.users-container fieldset {
+	border: none;
+	padding: 28px 25px;
+	
+}
+
+.users-container legend {
+	
+}
+
+.users-container input[type="text"] {
+	margin: 7px 12px;
+	padding: 5px 25px 5px 12px !important;
+}
+
+.users-container input[type="password"] {
+	margin: 7px 12px;
+	padding: 5px 25px 5px 12px !important;
+}
+
+.users-container input[type="checkbox"] {
+	box-shadow: none;
+	margin: 7px 12px;
+	width: 16px;
+	height: 16px;   
+}
+
+.users-contianer table {
+}
+
+.users-contianer tr {
+
+}
+
+.users-contianer td {
+	padding: 12px 25px;
+}
+
+.users-container label {
+	font-weight: bold;
+	color: rgba(255,255,255,1);
+}
+.rmbme {
+	color: rgba(204,255,0,1) !important;
+}
+
+.users-container span {
+	color: rgba(255,51,102,1);
+}
+
+.clear {
+	clear: both;
+}
+
+.hd {
+	font-weight: bold;
+	font-size: 1.25em;
+	padding: 5px;
+	text-indent: 145px;
+	text-transform: uppercase;
+	text-shadow: 0px 2px 3px rgba(0,0,0,.75);
+	color: rgba(255,255,255,1);
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,.50);
+	background: linear-gradient(to bottom, rgba(230,0,0,1) 0%,rgba(200,0,0,1) 100%);
+}
+
+.ft {
+	font-size: 1.25em;
+	padding: 3px 181px !important;
+	border: none !important;
+	border-radius: 1px !important;
+	text-transform: uppercase;
+	text-shadow: 0px 2px 3px rgba(0,0,0,.75);
+	color: rgba(255,255,255,1);
+	background: linear-gradient(to bottom, rgba(53,106,160,1) 0%,rgba(53,106,160,1) 100%);
+}
+
+.ft:hover {
+	transition: all .75s;
+	background: rgba(0,204,102,1);
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,.50);
+}

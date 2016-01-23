@@ -1,0 +1,112 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background: linear-gradient(to bottom, rgba(246,246,246,1) 0%,rgba(240,240,240,1) 100%);	
+
+}
+
+#worker {
+
+}
+
+.worker {
+	width: 80%;
+	margin: auto;
+	border: 1px;
+	background-color: rgba(255,255,255,1);
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,.50);
+}
+
+.worker h1, h2, h3, h4, h5, h6 {
+	font-size: 1.5em;
+	text-align: center;
+	color: rgba(255,255,255,1);
+	background: linear-gradient(to bottom, rgba(50,50,50,1) 50%,rgba(25,25,25,1) 100%);
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,.25);
+}
+
+.worker h2 {
+	font-size: 1.5em;
+}
+.worker h3 {
+	font-size: 1em;
+}
+
+
+.worker input {
+	margin: 5px 3px;
+}
+
+.worker span {
+	
+}
+
+.worker textarea {
+	margin: 0 1%;
+	display: block;	
+}
+
+.worker table {
+	width: 80%;
+	margin: 1% auto;
+	border: 1px solid rgba(0,0,0,.50);
+}
+
+.worker tr {
+
+}
+
+.worker td {
+	padding: 3px 5px 0px 5px;
+	font-weight: bold;
+	border: 1px solid rgba(0,0,0,.15);
+	background: linear-gradient(to bottom, rgba(248,248,248,1) 0%,rgba(240,240,240,1) 100%);
+	
+}
+
+.worker th {
+	padding: 5px;
+	font-weight: bold;
+	font-size: 1em;
+	border-radius: 2px;
+	color: rgba(255,255,255,1);
+	background: linear-gradient(to bottom, rgba(50,50,50,1) 50%,rgba(25,25,25,1) 100%);
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,.25);
+}
+
+.clear {
+	clear: both;
+}
+	
+
+.worker select {
+	padding: 5px 15px;
+	margin: 5px 25px;
+}
+
+.smt-btn-sbt {
+	font-size: 1.25em; 
+	text-shadow: 1px 2px 3px rgba(0,0,0,.50);
+	padding: 5px 87px !important;
+	color: rgba(255,255,255,1);
+	background: linear-gradient(to bottom, rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%);
+}
+
+.smt-btn-sbt:hover {
+	background: linear-gradient(to bottom, rgba(25,150,67,1) 0%,rgba(25,124,54,1) 100%);
+	transition: all .75s;
+}
+
+.smt-btn-rst {
+	font-size: 1.25em; 
+	text-shadow: 1px 2px 3px rgba(0,0,0,.50);
+	padding: 5px 112px !important;
+	color: rgba(255,255,255,1);
+	background: linear-gradient(to bottom, rgba(255,48,25,1) 0%,rgba(207,4,4,1) 100%);
+}
+
+.smt-btn-rst:hover {
+	background: linear-gradient(to bottom, rgba(204,0,0,1) 0%,rgba(204,0,0,1) 100%);
+	transition: all .5s;
+}

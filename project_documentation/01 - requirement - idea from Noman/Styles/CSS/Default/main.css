@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background: linear-gradient(to bottom, rgba(245,245,245,1) 0%,rgba(240,240,240,1) 100%);	
+}
+
+/* Main Container */
+#main-container {
+}
+
+.main-container {
+	width: 80%;
+	height: 750px;
+	margin: auto;
+	border-radius: 1px;
+	border: 1px solid rgba(0,0,0,.25);
+	background-color: rgba(255,255,255,1);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,.25);
+	
+}
+
+#exu-sum {
+}
+
+.exu-sum {
+}
+
+.exu-sum table {
+	font-weight: bold;
+	border: 1px solid rgba(0,0,0,.25);
+	margin: -375px 650px;
+}
+
+.exu-sum th {
+	padding: 5px;
+	color: rgba(255,255,255,1);
+	background: linear-gradient(to bottom, rgba(50,50,50,1) 50%,rgba(25,25,25,1) 100%);
+}
+
+.exu-sum tr {
+	background-color: rgba(255,255,255,1);	
+}
+
+
+.exu-sum td {
+	padding: 5px 12px;
+}
+
+.exu-sum td:nth-child(odd) {
+}
+
+.exu-sum td:nth-child(even) {
+}
+
+a {
+	word-spacing: 3px;
+	padding: 5px 32px 5px 16px !important;
+}
+	
+/* Left Container */
+#left-container {
+}
+
+/* Left Side Bar */
+.left-sidebar {
+}
+
+
+
+
+/* Right Container */
+#right-container {
+}
+
+/* Right Side Bar */
+.right-sidebar {
+}
+

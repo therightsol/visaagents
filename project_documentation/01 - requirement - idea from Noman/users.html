@@ -1,0 +1,37 @@
+  <!doctype html>
+  <html>
+  <head>
+  <title>Login!</title>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="Images/Global_Communication-512.png" />
+  <link rel="stylesheet" type="text/css" href="Styles/CSS/Default/users.css" />
+  <link rel="stylesheet" type="text/css" href="Styles/CSS/Default/global.css" />
+  
+  </head>
+ 
+  <body style="background: rgba(0,0,0,.01); background-size: 100%; background-image: url(Images/map.png), url(Images/wsflag.png);">
+    <div id="users-container" class="users-container">
+      <form method="post" action="users.php" name="user-login">
+      <div class="hd"><legend>User Login</legend></div> 
+        <fieldset>
+        <table>	
+            <tr>
+              <td><label> User Name<sup>&nbsp;<span>*</span></sup>:</label></td>
+              <td><input type="text" placeholder="Enter Username" name="usr_id" title="Username" required /></td>
+            </tr>
+            <tr>
+              <td><label> Password<sup>&nbsp;<span>*</span></sup>:</label></td>
+              <td><input type="password" placeholder="Type Password" name="usr_pwd" title="Password" required /></td>
+            </tr>
+            <tr>
+              <td><label class="rmbme">Remember Me!</label></td>
+              <td><input type="checkbox" title="Remember Me" /></td>
+            </tr>
+          </table>
+        </fieldset>
+		<div><input type="submit" value="Login!" class="ft" /></div>
+      </form>
+    </div>
+
+  </body>
+  </html>
