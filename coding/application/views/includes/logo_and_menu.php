@@ -19,7 +19,7 @@
                 <form autocomplete="off" role="search" method="get" class="searchform" action="#">
                   <input type="text" value="" name="s" id="s" placeholder="Search the site...">
                 </form>
-              </div>
+              </div><!-- test on line 22 -->
             </div>
             <!-- End Search -->
             <!-- Start Navigation List -->
