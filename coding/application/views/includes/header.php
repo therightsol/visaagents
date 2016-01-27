@@ -7,7 +7,7 @@
 <?php $root = base_url();   ?>
   <!-- Basic -->
   <title>
-      <?php if($pagename == 'Home'){
+      <?php if($pagename == 'home'){
           echo 'Visa Processing | Noman Ahmad'; 
           
       }elseif($pagename == 'addvisa'){ echo 'Add New Visa';
