@@ -6,7 +6,12 @@
 <head>
 <?php $root = base_url();   ?>
   <!-- Basic -->
-  <title>Visa Processing | Noman Ahmad</title>
+  <title>
+      <?php if($pagename == 'Home'){
+          echo 'Visa Processing | Noman Ahmad'; 
+          
+      }elseif($pagename == 'addvisa'){ echo 'Add New Visa';
+      } ?></title>
 
   <!-- Define Charset -->
   <meta charset="utf-8">

@@ -28,7 +28,7 @@
                 <a class="active" href="<?php echo $root; ?>home">Home</a> 
               </li>
               <li>
-                <a href="<?php echo $root; ?>about">Add Worker</a> 
+                <a href="<?php echo $root; ?>AddVisa">Add Visa</a> 
               </li> 
               <li>
                 <a href="<?php echo $root; ?>portfolio">Portfolio</a>
