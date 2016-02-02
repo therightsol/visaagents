@@ -11,7 +11,12 @@
           echo 'Visa Processing | Noman Ahmad'; 
           
       }elseif($pagename == 'addvisa'){ echo 'Add New Visa';
-      } ?></title>
+      }
+      elseif($pagename == 'Login'){ echo 'Login Here';
+      }
+      elseif($pagename == 'Register'){ echo 'Register Here';
+      }
+      ?></title>
 
   <!-- Define Charset -->
   <meta charset="utf-8">

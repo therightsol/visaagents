@@ -27,6 +27,16 @@
               <li>
                 <a class="active" href="<?php echo $root; ?>home">Home</a> 
               </li>
+               <?php 
+               $email = $this->session->userdata('email');
+                if (empty($email)) { ?>
+               <li>
+                <a href="<?php echo $root; ?>Login">Login</a> 
+              </li> 
+               <li>
+                <a href="<?php echo $root; ?>Register">Register</a> 
+              </li> 
+                <?php } ?>
               <li>
                 <a href="<?php echo $root; ?>AddVisa">Add Visa</a> 
               </li> 
@@ -43,6 +53,11 @@
                   </li>
                 </ul>
               </li> 
+             <?php if(!empty($email)) { ?>
+               <li>
+                <a href="<?php echo $root; ?>Logout">Logout</a> 
+              </li> 
+              <?php } ?>
             </ul>
             <!-- End Navigation List -->
           </div>
