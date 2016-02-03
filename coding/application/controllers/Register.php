@@ -78,7 +78,6 @@ class Register extends CI_Controller {
                 if ($un_found == '' and $email_found == '') {
 
 
-
                     $this->user->username = $userName;
                     $this->user->email = $email;
                     $this->user->password = $hashedPassword;
@@ -111,45 +110,5 @@ class Register extends CI_Controller {
             $this->load->view('reg_form', $data);
         }
     }
-     private function email() {
-        
-        $this->config->load('email');
-        $this->load->model('general');
-        $record = $this->general->getRecord('email_config', 'title', true);
-        
-        
-        foreach($record as $key => $value){
-            $this->config->set_item($value['config'], $value['value']);
-        }
-        
-        $send_email = $this->general->getRecord('send_email', 'title', true);
-        //echo '<tt><pre>'.var_export($send_email, true).'</tt></pre>';exit;
-        $type = '';
-        foreach ($send_email as $k => $v){
-            if($v['config'] == 'from'){
-                $from = $v['value'];
-            }
-            if($v['config'] == 'reply_to'){
-                $reply_to = $v['value'];
-            }
-            if($v['config'] == 'subject'){
-                $subject = $v['value'];
-            }
-            if($v['config'] == 'type'){
-                $type = $v['value'];
-            }
-        }
-        //echo '<tt><pre>'.var_export($send_email, true).'</tt></pre>';exit;
-        
-        $this->load->library('email');
-        
-        $success = $this->email->from($from)
-                ->reply_to($reply_to)
-                ->to('its.skp8@gmail.com')
-                ->subject($subject)
-                ->message('test message')
-                ->set_mailtype($type)
-                ->send();
-        echo $success;
-    }
+
 }
