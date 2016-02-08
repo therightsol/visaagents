@@ -8,7 +8,7 @@ class Logout extends CI_Controller{
         /*
          * logging out ... means deleting session
          */
-        $this->session->unset_userdata('email');     // deleting data in same request
+
         $this->session->sess_destroy();                 // deleting data on next request.
         
         

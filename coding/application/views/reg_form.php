@@ -1,15 +1,33 @@
 <?php include 'includes/header.php' ; ?>
 <?php include 'includes/top_header.php' ; ?>
-<?php include 'includes/logo_and_menu.php' ; ?>
+
+<?php
+$loggedInUser = $this->session->userdata('loggedInUser');
+
+// change menu according to privillages
+
+if($loggedInUser == 'admin'){
+    include 'includes/admin_menu.php';
+}else if($loggedInUser == 'local_user'){
+    include 'includes/local_user_menu.php';
+}else if($loggedInUser == 'kafeel'){
+    include 'includes/kafeel_menu.php';
+} else {
+    include 'includes/anonymous_menu.php';
+} ?>
 <body>
     <div class="container" >
         <div class="row" >  
             <div class="col-md-12"> 
                 <form  action="<?php echo $root; ?>Register" method="post">
-                                                        
+
                    <div class="form-body">
+
                        <h1 class="form-section">Register Here</h1>
                        <br /> <br />
+                       <?php
+                       if($this->session->userdata('loggedInUser') == ''){
+                       if ($data_saved == ''){ ?>
                                     <div class="row">
                                           <div class="col-md-5 col-md-offset-3">
                                             
@@ -126,6 +144,17 @@
 
                    </div>
                 </form>
+                <?php }else{ ?>
+                    <div class="alert alert-success col-sm-8 col-md-offset-2" style="margin-top: 8%; margin-bottom: 10%;">
+                        Register Successfully kindly wait for admin approval!
+                    </div>
+                <?php }
+                 }else{ ?>
+                    <div class="alert alert-danger col-sm-8 col-md-offset-2" style="margin-top: 8%; margin-bottom: 10%;">
+                        You are already registered!<br>
+                        Can not register again..
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </div>

@@ -1,0 +1,10 @@
+.panel-default>.panel-heading {
+
+    color: #FFFFFF !important;
+}
+.panel-heading {
+    padding: 10px 15px !important;
+}
+th{
+    text-align: center;
+}

@@ -4,14 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Register extends CI_Controller {
     public function index(){
         $data['pagename'] = 'Register';
-        
+        $data['activeMenu'] = 'register';
         
         
         $data['user_found'] = '';
         $data['email_found'] = '';
         $data['data_saved'] = '';
 
-        if ($_POST) {
+        if(filter_input_array(INPUT_POST)){
 
             $this->load->helper('security');
             $rules = array(
@@ -87,7 +87,6 @@ class Register extends CI_Controller {
                     $success = $this->user->insertRecord();
 
                     //sending email for validation;
-                            redirect('Login');
                     if ($success) {
                         // echo var_dump($success);
                         $data['data_saved'] = 'yes';

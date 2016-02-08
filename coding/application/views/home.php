@@ -1,6 +1,20 @@
 <?php include 'includes/header.php' ; ?>
 <?php include 'includes/top_header.php' ; ?>
-<?php include 'includes/logo_and_menu.php' ; ?>
+
+<?php
+$loggedInUser = $this->session->userdata('loggedInUser');
+
+// change menu according to privillages
+
+if($loggedInUser == 'admin'){
+  include 'includes/admin_menu.php';
+}else if($loggedInUser == 'local_user'){
+  include 'includes/local_user_menu.php';
+}else if($loggedInUser == 'kafeel'){
+  include 'includes/kafeel_menu.php';
+} else {
+  include 'includes/anonymous_menu.php';
+} ?>
 
 
 <!-- Start Home Page Slider -->
@@ -927,3 +941,4 @@
     <!-- End Client/Partner Section -->
     
     <?php include 'includes/footer.php'; ?>
+

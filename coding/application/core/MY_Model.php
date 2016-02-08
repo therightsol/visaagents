@@ -53,9 +53,11 @@ class MY_Model extends CI_Model {
      *       $where_columnName is column name for where clause.
      *       $$whereValue is simply where value.
      */
-    public function getSpecificColumnRec($columns = FALSE, $where_columnName = FALSE, $whereValue = FALSE){
-        $this->db->select($columns);
-        $query = $this->db->get_where($this::DB_TableName, array($where_columnName => $whereValue));
+    public function getSpecificColumnRec($columns = FALSE, $where_array = false){
+        if($columns){
+            $this->db->select($columns);
+        }
+        $query = $this->db->get_where($this::DB_TableName, $where_array);
         return $query->result_array();
         
     }
@@ -97,7 +99,7 @@ class MY_Model extends CI_Model {
       
       public function updateBatch($column, $whereValue) {
           $query = $this->db->update_batch($this::DB_TableName, $column, $whereValue);
-
+           return $query;
       }
       public function insertBatch($data){
           $query = $this->db->insert_batch($this::DB_TableName, $data);

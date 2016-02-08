@@ -1,6 +1,21 @@
 <?php include 'includes/header.php' ; ?>
 <?php include 'includes/top_header.php' ; ?>
-<?php include 'includes/logo_and_menu.php' ; ?>
+
+<?php
+$loggedInUser = $this->session->userdata('loggedInUser');
+
+// change menu according to privillages
+
+if($loggedInUser == 'admin'){
+    include 'includes/admin_menu.php';
+}else if($loggedInUser == 'local_user'){
+    include 'includes/local_user_menu.php';
+}else if($loggedInUser == 'kafeel'){
+    include 'includes/kafeel_menu.php';
+} else {
+    include 'includes/anonymous_menu.php';
+} ?>
+
 <body>
     <div class="container" >
         <div class="row" >  
@@ -10,14 +25,22 @@
                    <div class="form-body">
                        <h1 class="form-section">Login Here</h1>
                        <br /> <br />
+                       <?php if($this->session->userdata('loggedInUser') == ''){ ?>
                                     <div class="row">
                                         <div class="col-md-5 col-md-offset-3">
-                                             <?php if ($userfound == 'no' || $password_found == 'no') { ?>
+                                             <?php if ($record_found != '') { ?>
                                     <strong> <span class=" text-danger">
                                                 Sorry! User name or password is Incorrect. Please try again 
                                         </span></strong>
-                                        <?php } ?>
-                                           <div class="form-group <?php if($_POST){ if (form_error('username') != '' || $userfound == 'no') { ?> has-error <?php } } ?> " > 
+                                        <?php }
+                                        if ($is_admin_approved != '') { ?>
+                                            <div class="alert alert-info">
+                                                Sorry! Your account is not active <br>
+                                                Kindly wait for admin approval <strong>or</strong> send us email
+                                                <a href="<?php echo $root; ?>contact">here</a>
+                                            </div>
+                                            <?php } ?>
+                                           <div class="form-group <?php if($_POST){ if (form_error('email') != '' || $record_found != '') { ?> has-error <?php } } ?> " >
                                               
                                                
                                                <strong> <label class="control-label">Email:</label> </strong>
@@ -76,6 +99,11 @@
                                     </div>
 
                    </div>
+                       <?php }else{ ?>
+                           <div class="alert alert-danger col-sm-8 col-md-offset-2" style="margin-top: 8%; margin-bottom: 10%;">
+                               You are already logged in!<br>
+                           </div>
+                       <?php } ?>
                 </form>
             </div>
         </div>

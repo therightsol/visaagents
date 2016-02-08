@@ -7,7 +7,9 @@
 <?php $root = base_url();   ?>
   <!-- Basic -->
   <title>
-      <?php if($pagename == 'home'){
+      <?php
+      if(isset($pagename)){
+      if($pagename == 'home'){
           echo 'Visa Processing | Noman Ahmad'; 
           
       }elseif($pagename == 'addvisa'){ echo 'Add New Visa';
@@ -15,6 +17,9 @@
       elseif($pagename == 'Login'){ echo 'Login Here';
       }
       elseif($pagename == 'Register'){ echo 'Register Here';
+      }
+      }else{
+        echo 'Visa Processing | Noman Ahmad';
       }
       ?></title>
 
@@ -45,9 +50,18 @@
 
   <!-- Css3 Transitions Styles  -->
   <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>asset/css/animate.css" media="screen">
+  <!-- Css3 Date Styles  -->
+  <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>asset/css/datepicker.min.css" media="screen">
+  <!-- Css3 Custom Styles  -->
+  <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>asset/css/custom.css" media="screen">
+    <!-- Data table Styles  -->
+    <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>asset/css/datatable.min.css" media="screen">
+    <!-- Css Editable Styles  -->
+    <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>asset/css/editable.css">
+    <!-- Color CSS Styles  -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
 
-  <!-- Color CSS Styles  -->
-  <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>asset/css/colors/red.css" title="red" media="screen" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>asset/css/colors/red.css" title="red" media="screen" />
   <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>asset/css/colors/jade.css" title="jade" media="screen" />
   <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>asset/css/colors/green.css" title="green" media="screen" />
   <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>asset/css/colors/blue.css" title="blue" media="screen" />
@@ -78,7 +92,6 @@
   <script type="text/javascript" src="<?php echo $root; ?>asset/js/jquery.parallax.js"></script>
   <script type="text/javascript" src="<?php echo $root; ?>asset/js/mediaelement-and-player.js"></script>
   <script type="text/javascript" src="<?php echo $root; ?>asset/js/jquery.slicknav.js"></script>
-  
 
   <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
