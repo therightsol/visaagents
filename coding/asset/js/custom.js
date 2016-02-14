@@ -3,7 +3,7 @@
  */
 $(document).ready(function(){
 
-    $('#date').datepicker({
+    $('.date').datepicker({
         format: "dd M yyyy",
         autoclose: true,
         todayHighlight: true
@@ -15,6 +15,13 @@ $(document).ready(function(){
         stateSave: true
     });
     $('#localtable').dataTable({
+        stateSave: true
+    });
+    $('#privilagetable').dataTable({
+        stateSave: true
+    });
+
+    $('#iqama_professions').dataTable({
         stateSave: true
     });
 });

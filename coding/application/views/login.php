@@ -96,6 +96,9 @@ if($loggedInUser == 'admin'){
                                                 </div>
                                            </div>
                                         </div>
+                                             <div>
+                                                 <a href="<?php echo $root; ?>reset_password" >Forgotten password?</a>
+                                             </div>
                                     </div>
 
                    </div>

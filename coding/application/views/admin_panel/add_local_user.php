@@ -1,5 +1,5 @@
-<?php include 'includes/header.php' ; ?>
-<?php include 'includes/top_header.php' ; ?>
+<?php include '/../includes/header.php'; ?>
+<?php include '/../includes/top_header.php'; ?>
 
 <?php
 $loggedInUser = $this->session->userdata('loggedInUser');
@@ -7,23 +7,24 @@ $loggedInUser = $this->session->userdata('loggedInUser');
 // change menu according to privillages
 
 if($loggedInUser == 'admin'){
-    include 'includes/admin_menu.php';
+    include '/../includes/admin_menu.php';
 }else if($loggedInUser == 'local_user'){
-    include 'includes/local_user_menu.php';
+    include '/../includes/local_user_menu.php';
 }else if($loggedInUser == 'kafeel'){
-    include 'includes/kafeel_menu.php';
+    include '/../includes/kafeel_menu.php';
 } else {
-    include 'includes/anonymous_menu.php';
+    include '/../includes/anonymous_menu.php';
 } ?>
 <body>
     <div class="container" >
         <div class="row" >  
-            <div class="col-md-12"> 
-                <form  action="<?php echo $root; ?>add_local_user" method="post">
+            <div class="col-md-12">
+                <?php
+                if($loggedInUser == 'admin' || $loggedInUser == 'local_user'){ ?>
+                <form  action="<?php echo $root; ?>admin_panel/add_local_user" method="post">
 
                    <div class="form-body">
-                       <?php
-                       if($loggedInUser == 'admin' || $loggedInUser == 'local_user'){ ?>
+
                        <h1 class="form-section">Add Local User</h1>
                        <br /> <br />
                        <?php
@@ -36,7 +37,84 @@ if($loggedInUser == 'admin'){
                                     kindly use correct CNIC NO! <strong>or</strong>  contact with admin
                                 </div>
                             <?php } ?>
+                            <?php if($email_exist != ''){ ?>
+                                <div class="alert alert-danger">
+                                    User Email is already used for other <br>
+                                    kindly use another email!
+                                </div>
+                            <?php } ?>
+                            <?php if($user_exist != ''){ ?>
+                                <div class="alert alert-danger">
+                                    Username is already used for other <br>
+                                    kindly use another username!
+                                </div>
+                            <?php } ?>
                             <div class="col-md-12">
+                                <p class="form_heading">User Login Information</p>
+                                <div class="col-md-4">
+                                    <div class="form-group  <?php if($_POST){ if (form_error('username') != '') { ?> has-error <?php } } ?> " >
+                                        <strong> <label class="control-label">Username:</label> </strong>
+                                        <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-envelope-o"></i>
+                                        </span>
+                                            <input type="text" class="form-control" name="username" placeholder="Enter username"
+                                                <?php if ($_POST) { ?> value="<?php echo $_POST['username']; ?>" <?php } ?>
+                                            />
+                                        </div>
+                                        <?php
+                                        if($_POST){
+                                            if (form_error('username') != '') { ?>
+                                                <span class="help-block">
+                                            <?php echo form_error('username'); ?>
+                                        </span>
+                                            <?php } } ?>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group  <?php if($_POST){ if (form_error('email') != '') { ?> has-error <?php } } ?> " >
+                                        <strong> <label class="control-label">Email:</label> </strong>
+                                        <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-envelope-o"></i>
+                                        </span>
+                                            <input type="email" class="form-control" name="email" placeholder="someone@example.com"
+                                                <?php if ($_POST) { ?> value="<?php echo $_POST['email']; ?>" <?php } ?>
+                                            />
+                                        </div>
+                                        <?php
+                                        if($_POST){
+                                            if (form_error('email') != '') { ?>
+                                                <span class="help-block">
+                                            <?php echo form_error('email'); ?>
+                                        </span>
+                                            <?php } } ?>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group  <?php if($_POST){ if (form_error('password') != '') { ?> has-error <?php } } ?> " >
+                                        <strong> <label class="control-label">Password:</label> </strong>
+                                        <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-envelope-o"></i>
+                                        </span>
+                                            <input type="text" class="form-control" name="password" placeholder="Enter password"
+                                                <?php if ($_POST) { ?> value="<?php echo $_POST['password']; ?>" <?php } ?>
+                                            />
+                                        </div>
+                                        <?php
+                                        if($_POST){
+                                            if (form_error('password') != '') { ?>
+                                                <span class="help-block">
+                                            <?php echo form_error('password'); ?>
+                                        </span>
+                                            <?php } } ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <p class="form_heading">User Basic Information</p>
                               <div class="col-md-6">
                                <div class="form-group <?php if($_POST){ if(form_error('fname') != '') { ?> has-error <?php } }?>" >
                                    <strong> <label class="control-label">First Name:</label> </strong>
@@ -247,7 +325,7 @@ if($loggedInUser == 'admin'){
                                         <span class="input-group-addon">
                                             <i class="fa fa-envelope-o"></i>
                                         </span>
-                                            <input id="date" type="text" class="form-control" name="date_join" placeholder="address"
+                                            <input type="text" class="form-control date" name="date_join" placeholder="address"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['date_join']; ?>" <?php } ?>
                                             />
                                         </div>
@@ -271,13 +349,15 @@ if($loggedInUser == 'admin'){
                             </div>
 
                    </div>
+                       <?php }else{ ?>
+                           <div class="alert alert-success col-sm-8 col-md-offset-2" style="margin-top: 8%; margin-bottom: 10%;">
+                               Local User added successfuly ! <br>
+                               <a href="<?php echo base_url(); ?>add_local_user" style="color:#2A7FFF" >Click here to Go Back</a>
+                           </div>
+                       <?php } ?>
+                       </div>
                 </form>
-                <?php }else{ ?>
-                    <div class="alert alert-success col-sm-8 col-md-offset-2" style="margin-top: 8%; margin-bottom: 10%;">
-                        Local User added successfuly ! <br>
-                        <a href="<?php echo base_url(); ?>add_local_user" style="color:#2A7FFF" >Click here to Go Back</a>
-                    </div>
-                <?php }
+                <?php
                  }else{ ?>
                     <div class="alert alert-danger col-sm-8 col-md-offset-2" style="margin-top: 8%; margin-bottom: 10%;">
                         You do not have sufficient permissions to access this page
@@ -288,8 +368,7 @@ if($loggedInUser == 'admin'){
             </div>
         </div>
     </div>
-    </div>
        
     <br /><br /><br /><br />
 </body>
-   <?php include 'includes/footer.php'; ?>
+   <?php include '/../includes/footer.php'; ?>

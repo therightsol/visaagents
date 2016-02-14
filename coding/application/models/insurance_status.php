@@ -10,7 +10,7 @@ class Insurance_status extends MY_Model
     const DB_TableName = 'insurance_statuses';
     const DB_TablePK = 'ins_id';
 
-    public $isn_status= '';
+    public $isn_status = '';
 
 } ?>
 	

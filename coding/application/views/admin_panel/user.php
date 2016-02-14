@@ -27,7 +27,7 @@ if($loggedInUser == 'admin'){
         </div>
       <?php } ?>
       <div class="col-lg-12">
-        <div class="panel panel-default">
+        <div class="panel panel-default z-depth-1">
           <div class="panel-heading" style="background-color: darkseagreen;">
             Delete/Approve users
           </div>
@@ -124,7 +124,7 @@ if($loggedInUser == 'admin'){
                       ?>
                       <tr class="gradeU">
                         <td class="text-center"><?php echo $i; ?></td>
-                        <td><?php echo $value['username']; ?></td>
+                        <td><a href="<?php echo $root.'admin_panel/update_user_profile/'.$value['uid']; ?>" data-toggle="tooltip" data-placement="top" title="Click to update user"><?php echo $value['username']; ?></a></td>
                         <td><?php echo $value['email']; ?></td>
                       </tr>
                       <?php $i++; } } ?>
@@ -166,7 +166,7 @@ if($loggedInUser == 'admin'){
                       ?>
                       <tr class="gradeU">
                         <td class="text-center"><?php echo $i; ?></td>
-                        <td><?php echo $value['username']; ?></td>
+                        <td><a href="<?php echo $root.'admin_panel/update_user_profile/'.$value['uid']; ?>" data-toggle="tooltip" data-placement="top" title="Click to update user"><?php echo $value['username']; ?></a></td>
                         <td><?php echo $value['email']; ?></td>
                       </tr>
                       <?php $i++; } } ?>
@@ -188,7 +188,7 @@ if($loggedInUser == 'admin'){
         <h1>Set Privileges</h1>
       </div>
       <div class="col-lg-12">
-        <div class="panel panel-default">
+        <div class="panel panel-default z-depth-4">
           <div class="panel-heading" style="background-color: firebrick;">
             Delete/Approve users
           </div>
@@ -196,7 +196,7 @@ if($loggedInUser == 'admin'){
           <div class="panel-body">
             <div class="dataTable_wrapper">
               <form action="<?php echo base_url(); ?>admin_panel/user" role="form" method="post">
-                <table class="table table-striped table-bordered table-hover" id="unapprovetable">
+                <table class="table table-striped table-bordered table-hover" id="privilagetable">
                   <thead>
                   <tr>
                     <th>S.No</th>
@@ -210,7 +210,7 @@ if($loggedInUser == 'admin'){
                   <?php
                   $i = 1;
                   foreach($allusers as $key => $value){
-                    if($value['is_admin'] != 1){
+                    if($value['is_admin_approved'] == 1){
                       ?>
                       <tr class="gradeU">
                         <td class="text-center"><?php echo $i; ?></td>
@@ -219,14 +219,18 @@ if($loggedInUser == 'admin'){
                         <td class="text-center">
                           <?php
                           if($value['is_local_user'] == 1){ ?>
-                            <a href="#" class="privilege" data-type="select" data-source="[{value: 'is_local_user', text: 'local_user'},{value: 'is_kafeel', text: 'kafeel'}]" data-name="privilege" data-pk="<?php echo $value['uid']; ?>" data-value="is_local_user" data-original-title="Select Privilege">
+                            <a style="color: green;" href="#" class="privilege" data-type="select" data-source="[{value: 'is_local_user', text: 'local_user'},{value: 'is_kafeel', text: 'kafeel'}]" data-name="privilege" data-pk="<?php echo $value['uid']; ?>" data-value="is_local_user" data-original-title="Select Privilege">
                               Local User
                             </a>
-                            <?php }if($value['is_kafeel'] == 1){ ?>
-                            <a href="#" class="privilege" data-type="select" data-source="[{value: 'is_local_user', text: 'local_user'},{value: 'is_kafeel', text: 'kafeel'}]" data-name="privilege" data-pk="<?php echo $value['uid']; ?>" data-value="is_kafeel" data-original-title="Select Privilege">
+                            <?php }elseif($value['is_kafeel'] == 1){ ?>
+                            <a style="color: #006dcc;" href="#" class="privilege" data-type="select" data-source="[{value: 'is_local_user', text: 'local_user'},{value: 'is_kafeel', text: 'kafeel'}]" data-name="privilege" data-pk="<?php echo $value['uid']; ?>" data-value="is_kafeel" data-original-title="Select Privilege">
                               Kafeel
                             </a>
-                        <?php } ?>
+                        <?php }else{ ?>
+                            <a href="#" class="privilege" data-type="select" data-source="[{value: 'is_local_user', text: 'local_user'},{value: 'is_kafeel', text: 'kafeel'}]" data-name="privilege" data-pk="<?php echo $value['uid']; ?>" data-value="not Set" data-original-title="Select Privilege">
+                              Not Set
+                            </a>
+                          <?php } ?>
 
                         </td>
                         <td class="text-center">
@@ -267,6 +271,7 @@ if($loggedInUser == 'admin'){
           location.reload();
       }
     });
+    $('[data-toggle="tooltip"]').tooltip();
   });
 </script>
 </body>

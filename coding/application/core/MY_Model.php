@@ -61,6 +61,23 @@ class MY_Model extends CI_Model {
         return $query->result_array();
         
     }
+
+    public function getRecord_like($columAndvalues = FALSE, $limit = FALSE, $like = FALSE, $like_value = FALSE) {
+        if ($columAndvalues) {
+            $this->db->where($columAndvalues);
+        }
+        if($limit){
+            $this->db->order_by($this::DB_TablePK, "desc");
+            $this->db->limit($limit);
+        }
+        if($like){
+            $this->db->like($like, $like_value);
+        }
+        $query = $this->db->get($this::DB_TableName);
+
+        return $query->result_array();
+
+    }
     
     /*
      * countRow('isApproved', 1);
@@ -136,7 +153,7 @@ class MY_Model extends CI_Model {
         $query = $this->db->get($this::DB_TableName);
         return $query->result_array();
     }
-     
+    /**
     public function getRecord_like($columnName, $pattern, $just_LIKE = FALSE){
         
         if($just_LIKE){
@@ -156,7 +173,7 @@ class MY_Model extends CI_Model {
         return $query->result_array();
     }
    
-    /**
+
      * This function will fetch all data OR limited data from Database.
      * This function will take table name from where data will fetch.
      * @param type $tableName, string that contain the table name.
@@ -218,6 +235,18 @@ class MY_Model extends CI_Model {
         
         $query = $this->db->get($this::DB_TableName);
         return $query->num_rows();
+    }
+
+    public function sql_join_two($where_value, $second_table, $join_where){
+        $this->db->select('*');
+        $this->db->from($this::DB_TableName);
+        $this->db->join($second_table, $join_where, 'inner');
+
+        if($where_value){
+            $this->db->where($where_value);
+        }
+        $query = $this->db->get();
+        return $query->result_array();
     }
  
 } ?>

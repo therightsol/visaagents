@@ -32,17 +32,30 @@
         </li>
         <li>
           <a
+              <?php if(isset($activeMenu)){ if($activeMenu == 'add_worker'){ echo 'class="active"'; }} ?>
+              href="<?php echo $root; ?>add_worker">Add Worker
+          </a>
+        </li>
+        <li>
+          <a
               <?php if(isset($activeMenu)){ if($activeMenu == 'admin_panel'){ echo 'class="active"'; }} ?>
-              href="<?php echo $root; ?>Admin_panel">Admin Panel
+              href="#">Work Place
           </a>
           <ul class="dropdown">
             <li><a href="<?php echo $root; ?>admin_panel/add_kafeel">Add kafeel</a></li>
-            <li><a href="<?php echo $root; ?>add_local_user">Add Local User</a></li>
+            <li><a href="<?php echo $root; ?>admin_panel/add_local_user">Add Local User</a></li>
             <li><a href="<?php echo $root; ?>admin_panel/user">User Operation</a></li>
             <li><a href="<?php echo $root; ?>admin_panel/add_visa">Add Visa</a></li>
             <li><a href="<?php echo $root; ?>admin_panel/visa_profession">Visa Profession</a></li>
             <li><a href="<?php echo $root; ?>admin_panel/visa_category">Visa Category</a></li>
+            <li><a href="<?php echo $root; ?>admin_panel/iqama_profession">Iqama Profession</a></li>
           </ul>
+        </li>
+        <li>
+          <a
+              <?php if(isset($activeMenu)){ if($activeMenu == 'profile'){ echo 'class="active"'; }} ?>
+              href="<?php echo $root; ?>profile">Profile
+          </a>
         </li>
         <li>
           <a href="<?php echo $root; ?>Logout">Logout</a>

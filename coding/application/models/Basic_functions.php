@@ -16,7 +16,7 @@ class Basic_functions {
         return $reqDate;
     }
     
-    public function getPasswordSalt() {
+    public function getRandomStr() {
         $charset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         $result = '';
 

@@ -18,16 +18,14 @@ public $kafeel_code = '';
 public $business_name = '';
 public $date = '';
 public $visa_profession = '';
-public $member_of_visa = '';
+public $number_of_visa = '';
 public $visa_price = '';
 public $care_off = '';
 public $visa_category = '';
-public $email = '';
 public $website = '';
 public $address = '';
 public $cell_number = '';
 public $office_number = '';
 public $comment = '';
 public $uid = '';
-} ?>
-	
+}

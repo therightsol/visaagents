@@ -21,7 +21,7 @@ class Login extends CI_Controller {
                 array(
                     'field' => 'password',
                     'label' => 'Password',
-                    'rules' => 'required|max_length[18]|min_length[8]|trim'
+                    'rules' => 'required|max_length[18]|min_length[6]|trim'
                 )
             );
             $this->load->library('form_validation');
@@ -59,6 +59,7 @@ class Login extends CI_Controller {
 
                     $dbPass = $db_record[0]['password'];
                     $db_email = $db_record[0]['email'];
+                    $db_user_id = $db_record[0]['uid'];
 
                     $input_password = $this->input->post('password', True);
 
@@ -79,6 +80,7 @@ class Login extends CI_Controller {
                          * takes 2 parameters. Key and Value
                          */
                         $this->session->set_userdata('email', $input_email);
+                        $this->session->set_userdata('userid', $db_user_id);
                         $this->session->set_userdata('loggedInUser', $loggedInUser);
 
 

@@ -21,132 +21,158 @@ if($loggedInUser == 'admin'){
      <div class="container" >
         <div class="row" >  
             <div class="col-md-12"> 
-                <form  action="<?php echo $root; ?>AddVisa" method="post">
+                <form  action="<?php echo $root; ?>admin_panel/add_visa" method="post">
                                                         
                    <div class="form-body">
                        <h2 class="form-section">Add New Visa</h2>
                                     <div class="row">
+                                        <?php if ($success == ''){ ?>
+                                        <div class="col-md-12">
                                         <div class="col-md-6">
                                             
-                                           <div class="form-group" > 
+                                           <div class="form-group <?php if($_POST){ if (form_error('date')) { ?> has-error <?php } } ?>" >
                                                 <label class="control-label">Date:</label>
                                                 <div class="input-group">
                                                     <span class="input-group-addon">
                                                         <i class="glyphicon glyphicon-calendar"></i>
                                                     </span> 
-                                                    <input type="date" class="form-control" name="date"  />
-                                                          
-                                                           
-                                                </div> 
+                                                    <input type="text"  class="form-control date" name="date" value="<?php if ($_POST){ echo set_value('date'); }; ?>" />
+
+                                                </div>
+                                               <?php if($_POST){
+                                                   if (form_error('date') != '') { ?>
+                                                       <span class="help-block">
+                                                            <?php echo form_error('date'); ?>
+                                                        </span>
+                                                   <?php } }?>
                                                 
                                             </div>  
                                             
                                             
                                         </div>
                                         <div class="col-md-6">
-                                            
-                                           <div class="form-group" > 
-                                                <label class="control-label">Kafeel Name:</label>
+                                            <div class="form-group  <?php if($_POST){ if (form_error('kafeel_code') != '') { ?> has-error <?php } } ?> " >
+                                                <label class="control-label">Kafeel Code:</label>
                                                 <div class="input-group">
-                                                    <span class="input-group-addon">
-                                                        <i class="glyphicon glyphicon-user"></i>
-                                                    </span> 
-                                                    <input type="text" class="form-control" name="kafeel_name" placeholder="Enter Name" />
-                                                          
-                                                           
-                                                </div> 
-                                                
-                                            </div>  
-                                            
-                                            
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-envelope-o"></i>
+                                                </span>
+                                                            <select name="kafeel_code" id="kafeel_code" class="form-control" ></select>
+                                                        </div>
+                                                        <?php
+                                                        if($_POST){
+                                                            if (form_error('kafeel_code') != '') { ?>
+                                                                <span class="help-block">
+                                                    <?php echo form_error('kafeel_code'); ?>
+                                                </span>
+                                                    <?php } } ?>
+                                            </div>
                                         </div>
+                                        </div>
+                                        <div class="col-md-12">
                                         <div class="col-md-6">
                                             
-                                           <div class="form-group" > 
+                                           <div class="form-group <?php if($_POST){ if (form_error('visa_profession')) { ?> has-error <?php } } ?>" >
                                                 <label class="control-label">Visa profession:</label>
                                                 <div class="input-group">
                                                     <span class="input-group-addon">
                                                         <i class="glyphicon glyphicon-user"></i>
-                                                    </span> 
-                                                    <select name="visa_profession" class="form-control js-data-example-ajax">
-                                                        <option> labour </option>
-                                                        <option> Doctor </option>
-                                                    </select>
-                                                          
-                                                           
-                                                </div> 
-                                                
-                                            </div>  
-                                            
-                                            
+                                                    </span>
+                                                    <select name="visa_profession" class="form-control get_profession"> </select>
+
+                                                </div>
+                                               <?php if($_POST){
+                                                   if (form_error('visa_profession') != '') { ?>
+                                                       <span class="help-block">
+                                                            <?php echo form_error('visa_profession'); ?>
+                                                        </span>
+                                                   <?php } }?>
+                                            </div>
                                         </div>
+
                                          <div class="col-md-6">
                                             
-                                           <div class="form-group" > 
+                                           <div class="form-group <?php if($_POST){ if (form_error('no_of_visas')) { ?> has-error <?php } } ?>" >
                                                 <label class="control-label">Number of Visas:</label>
                                                 <div class="input-group">
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-list-ol"></i>
                                                     </span> 
-                                                    <input type="number" class="form-control" name="no_of_visas" />
-                                                          
-                                                           
-                                                </div> 
-                                                
+                                                    <input type="number" class="form-control" name="no_of_visas" value="<?php if ($_POST){ echo set_value('no_of_visas'); }; ?>" />
+
+                                                </div>
+                                               <?php if($_POST){
+                                                   if (form_error('no_of_visas') != '') { ?>
+                                                       <span class="help-block">
+                                                            <?php echo form_error('no_of_visas'); ?>
+                                                        </span>
+                                                   <?php } }?>
                                             </div>  
                                             
                                             
                                         </div>
+                                            </div>
+                                        <div class="col-md-12">
                                          <div class="col-md-6">
                                             
-                                           <div class="form-group" > 
+                                           <div class="form-group <?php if($_POST){ if (form_error('visa_price')) { ?> has-error <?php } } ?>" >
                                                 <label class="control-label">Visa Price:</label>
                                                 <div class="input-group">
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-money"></i>
                                                     </span> 
-                                                    <input type="text" class="form-control" name="visa_price" />
-                                                          
-                                                           
-                                                </div> 
-                                                
+                                                    <input type="text" class="form-control" name="visa_price" value="<?php if ($_POST){ echo set_value('visa_price'); }; ?>" />
+
+                                                </div>
+                                               <?php if($_POST){
+                                                   if (form_error('visa_price') != '') { ?>
+                                                       <span class="help-block">
+                                                            <?php echo form_error('visa_price'); ?>
+                                                        </span>
+                                                   <?php } }?>
                                             </div>  
                                             
                                             
                                         </div>
                                            <div class="col-md-6">
                                             
-                                           <div class="form-group" > 
+                                           <div class="form-group <?php if($_POST){ if (form_error('visa_category')) { ?> has-error <?php } } ?>" >
                                                 <label class="control-label">Visa Category:</label>
                                                 <div class="input-group">
                                                     <span class="input-group-addon">
                                                         <i class="glyphicon glyphicon-user"></i>
                                                     </span> 
-                                                    <select name="visa_category" class="form-control">
-                                                        <option> Monthly</option>
-                                                        <option> Work with kafeel </option>
-                                                    </select>
-                                                          
-                                                           
-                                                </div> 
-                                                
+                                                    <select name="visa_category" class="form-control get_category"></select>
+
+                                                </div>
+                                               <?php if($_POST){
+                                                   if (form_error('visa_category') != '') { ?>
+                                                       <span class="help-block">
+                                                            <?php echo form_error('visa_category'); ?>
+                                                        </span>
+                                                   <?php } }?>
                                             </div>  
                                             
                                             
                                         </div>
+                                            </div>
                                         <div class="col-md-6 col-md-offset-3">
                                             
-                                           <div class="form-group" > 
+                                           <div class="form-group <?php if($_POST){ if (form_error('comment')) { ?> has-error <?php } } ?>" >
                                                 <label class="control-label">Comments:</label>
                                                 <div class="input-group">
                                                     <span class="input-group-addon">
                                                         <i class="fa fa-comment"></i>
                                                     </span> 
-                                                    <textarea name="comment" class="form-control" rows="10" style="resize:none"></textarea>
-                                                          
-                                                           
-                                                </div> 
-                                                
+                                                    <textarea name="comment" class="form-control" rows="10" style="resize:none"><?php if ($_POST){ echo set_value('comment'); }; ?></textarea>
+
+                                                </div>
+                                               <?php if($_POST){
+                                                   if (form_error('comment') != '') { ?>
+                                                       <span class="help-block">
+                                                            <?php echo form_error('comment'); ?>
+                                                        </span>
+                                                   <?php } }?>
                                             </div>  
                                             
                                             
@@ -162,7 +188,12 @@ if($loggedInUser == 'admin'){
                                         </div>
                         </div>
                                    
-                                   
+                                   <?php }else{ ?>
+                                        <div class="alert alert-success">
+                                            Visa inserted Successfully <br>
+                                            <a href="<?php echo $root; ?>admin_panel/add_visa">Click here to go back</a>
+                                        </div>
+                                        <?php } ?>
                        
                                     </div>
                       </div>
@@ -174,39 +205,76 @@ if($loggedInUser == 'admin'){
      </div>
 <script>
     $(document).ready(function () {
-        $(".js-data-example-ajax").select2({
+        $("#kafeel_code").select2({
             ajax: {
-                url: "https://api.github.com/search/repositories",
+                url: "<?php echo $root; ?>search/kafeel_code",
+                type: "POST",
                 dataType: 'json',
                 delay: 250,
                 data: function (params) {
                     return {
-                        q: params.term, // search term
-                        page: params.page
+                        kafeel_code: params.term
                     };
                 },
-                processResults: function (data, params) {
-                    // parse the results into the format expected by Select2
-                    // since we are using custom formatting functions we do not need to
-                    // alter the remote JSON data, except to indicate that infinite
-                    // scrolling can be used
-                    params.page = params.page || 1;
-
+                processResults: function (data) {
                     return {
-                        results: data.items,
-                        pagination: {
-                            more: (params.page * 30) < data.total_count
-                        }
+                        results: data
+                    };
+                },
+                cache: true
+
+            },
+            escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+            minimumInputLength: 1, // omitted for brevity, see the source of this page
+            placeholder: "Select a profession"
+        });
+        $(".get_profession").select2({
+            ajax: {
+                url: "<?php echo $root; ?>search/visa_profession",
+                type: "POST",
+                dataType: 'json',
+                delay: 250,
+                data: function (params) {
+                    return {
+                        profession: params.term
+                    };
+                },
+                processResults: function (data) {
+                    return {
+                        results: data
                     };
                 },
                 cache: true
             },
             escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
-            minimumInputLength: 1,
-            templateResult: formatRepo, // omitted for brevity, see the source of this page
-            templateSelection: formatRepoSelection // omitted for brevity, see the source of this page
+            minimumInputLength: 1, // omitted for brevity, see the source of this page
+            placeholder: "Select a profession"
         });
-    })
+
+    $(".get_category").select2({
+        ajax: {
+            url: "<?php echo $root; ?>search/visa_category",
+            type: "POST",
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                    category: params.term
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data
+                };
+            },
+            cache: true
+
+        },
+        escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+        minimumInputLength: 1, // omitted for brevity, see the source of this page
+        placeholder: "Select a profession"
+    });
+    });
 </script>
     <br /><br /><br /><br /></body>
    <?php include '/../includes/footer.php'; ?>

@@ -60,6 +60,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>asset/css/editable.css">
     <!-- Color CSS Styles  -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>asset/css/picedit.min.css" />
 
     <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>asset/css/colors/red.css" title="red" media="screen" />
   <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>asset/css/colors/jade.css" title="jade" media="screen" />
