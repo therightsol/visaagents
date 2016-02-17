@@ -121,7 +121,7 @@ if($loggedInUser == 'admin'){
                                     <strong> <label class="control-label">Passport No:</label> </strong>
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-book"></i>
                                         </span>
                                         <input type="number" class="form-control input-sm" name="passport" placeholder="enter passport number"
                                             <?php if ($_POST) { ?> value="<?php echo $_POST['passport']; ?>" <?php } ?>
@@ -142,7 +142,7 @@ if($loggedInUser == 'admin'){
                                     <strong> <label class="control-label">Phone No:</label> </strong>
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-mobile"></i>
                                         </span>
                                         <input type="number" class="form-control input-sm" name="phone" placeholder="9232176543210"
                                             <?php if ($_POST) { ?> value="<?php echo $_POST['phone']; ?>" <?php } ?>
@@ -162,7 +162,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Address:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-map-marker"></i>
                                         </span>
                                             <input type="text" class="form-control input-sm" name="address" placeholder="address"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['address']; ?>" <?php } ?>
@@ -185,7 +185,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Date of birth:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-calendar-check-o"></i>
                                         </span>
                                             <input id="date" type="text" class="form-control input-sm date" name="dob" placeholder="date of birth"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['dob']; ?>" <?php } ?>
@@ -209,7 +209,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">City:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-map-pin"></i>
                                         </span>
                                             <input type="text" class="form-control input-sm" name="city" placeholder="enter city"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['city']; ?>" <?php } ?>
@@ -234,7 +234,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Country:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-globe"></i>
                                         </span>
                                             <input type="text" class="form-control input-sm" name="country" placeholder="Enter country"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['country']; ?>" <?php } ?>
@@ -260,7 +260,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Name:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-user"></i>
                                         </span>
                                             <input type="text" id="co_name" class="form-control input-sm" name="co_name" placeholder="address"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['co_name']; ?>" <?php } ?>
@@ -283,7 +283,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">City:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-map-pin"></i>
                                         </span>
                                             <input type="text" id="co_city" class="form-control input-sm" name="co_city" placeholder="enter name"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['co_city']; ?>" <?php } ?>
@@ -304,7 +304,7 @@ if($loggedInUser == 'admin'){
                                     <strong> <label class="control-label">Phone:</label> </strong>
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-mobile-phone"></i>
                                         </span>
                                         <input type="text" id="co_phone" class="form-control input-sm" name="co_phone" placeholder="enter name"
                                             <?php if ($_POST) { ?> value="<?php echo $_POST['co_phone']; ?>" <?php } ?>
@@ -326,7 +326,7 @@ if($loggedInUser == 'admin'){
                                     <strong> <label class="control-label">Address:</label> </strong>
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-globe"></i>
                                         </span>
                                         <input type="text" class="form-control input-sm" name="co_address" placeholder="enter name"
                                             <?php if ($_POST) { ?> value="<?php echo $_POST['co_city']; ?>" <?php } ?>
@@ -370,7 +370,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Visa:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-info"></i>
                                         </span>
                                             <input type="text" class="form-control input-sm" name="visa" placeholder="visa"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['visa']; ?>" <?php } ?>
@@ -410,7 +410,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Profession of iqama:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-picture-o"></i>
                                         </span>
                                             <select name="iqama_profession" id="iqama_profession" class="form-control input-sm" ></select>
                                         </div>
@@ -430,7 +430,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Iqama Issue date:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="glyphicon glyphicon-user"></i>
+                                            <i class="fa fa-calendar"></i>
                                         </span>
                                             <input type="text" class="form-control input-sm date" name="iqama_issue" placeholder="jhone Doe"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['iqama_issue']; ?>" <?php } ?>
@@ -452,7 +452,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Iqama Expiry:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="glyphicon glyphicon-user"></i>
+                                            <i class="fa fa-calendar"></i>
                                         </span>
                                             <input type="text" class="form-control input-sm date" name="iqama_expiry" placeholder="jhone Doe"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['iqama_expiry']; ?>" <?php } ?>
@@ -474,7 +474,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Visa Category:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-book"></i>
                                         </span>
                                             <select name="visa_category" id="visa_category" class="form-control input-sm" ></select>
                                         </div>
@@ -495,7 +495,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Insurance:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-sticky-note-o"></i>
                                         </span>
                                             <select name="insurance"  class="form-control input-sm" >
                                                 <option value="done" <?php if ($_POST){ echo set_select('insurance', 'done'); }; ?>>Done</option>
@@ -518,7 +518,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Visa Status in Pakistan:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-sticky-note-o"></i>
                                         </span>
                                             <select name="pk_status"  class="form-control input-sm" >
                                                 <option value="">Select</option>
@@ -544,7 +544,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Iqama Status in KSA:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-chevron-right"></i>
                                         </span>
                                             <select name="ksa_status"  class="form-control input-sm" >
                                                 <option value="done" <?php if ($_POST){ echo set_select('ksa_status', 'done'); }; ?>>Done</option>
@@ -570,7 +570,7 @@ if($loggedInUser == 'admin'){
                                     <strong> <label class="control-label">Iqama Received by:</label> </strong>
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-user-secret"></i>
                                         </span>
                                         <select name="iqama_received_by" id="ir_by" class="form-control input-sm" >
                                             <option value="">Select</option>
@@ -593,7 +593,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Name:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="glyphicon glyphicon-user"></i>
+                                            <i class="fa fa-user"></i>
                                         </span>
                                             <input type="text" id="ir_name" class="form-control input-sm" name="iqama_received_by_name" placeholder="jhone Doe"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['iqama_received_by_name']; ?>" <?php } ?>
@@ -615,7 +615,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">City:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="glyphicon glyphicon-user"></i>
+                                            <i class="fa fa-map-pin"></i>
                                         </span>
                                             <input type="text" id="ir_city" class="form-control input-sm" name="iqama_received_by_city" placeholder="jhone Doe"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['iqama_received_by_city']; ?>" <?php } ?>
@@ -637,7 +637,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Phone:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="glyphicon glyphicon-user"></i>
+                                            <i class="glyphicon glyphicon-phone"></i>
                                         </span>
                                             <input type="text" id="ir_phone" class="form-control input-sm" name="iqama_received_by_phone" placeholder="jhone Doe"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['iqama_received_by_city']; ?>" <?php } ?>
@@ -663,7 +663,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Kafeel Code:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-user"></i>
                                         </span>
                                             <select name="kafeel_code" id="kafeel_code" class="form-control input-sm" ></select>
                                         </div>
@@ -683,7 +683,7 @@ if($loggedInUser == 'admin'){
                                     <strong> <label class="control-label">Total Payment Agreed:</label> </strong>
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="glyphicon glyphicon-user"></i>
+                                            <i class="fa fa-money"></i>
                                         </span>
                                         <input type="text" class="form-control input-sm" name="payment" placeholder="jhone Doe"
                                             <?php if ($_POST) { ?> value="<?php echo $_POST['payment']; ?>" <?php } ?>
@@ -705,7 +705,7 @@ if($loggedInUser == 'admin'){
                                     <strong> <label class="control-label">Total Visa Expense:</label> </strong>
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="glyphicon glyphicon-user"></i>
+                                            <i class="fa fa-money"></i>
                                         </span>
                                         <input type="text" class="form-control input-sm" name="payment_expense" placeholder="jhone Doe"
                                             <?php if ($_POST) { ?> value="<?php echo $_POST['payment_expense']; ?>" <?php } ?>
@@ -727,7 +727,7 @@ if($loggedInUser == 'admin'){
                                     <strong> <label class="control-label">Final Visa Status:</label> </strong>
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="glyphicon glyphicon-user"></i>
+                                            <i class="fa fa-file"></i>
                                         </span>
                                         <select name="final_status"  required class="form-control input-sm" >
                                             <option value="">Select</option>
@@ -756,7 +756,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Description:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="glyphicon glyphicon-user"></i>
+                                            <i class="fa fa-commenting"></i>
                                         </span>
                                             <textarea name="description" rows="4" class="form-control input-sm" ><?php if ($_POST){ echo set_value('description'); } ?></textarea>
                                         </div>

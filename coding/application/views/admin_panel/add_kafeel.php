@@ -76,7 +76,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Username:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-user"></i>
                                         </span>
                                             <input type="text" class="form-control" name="username" placeholder="Enter username"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['username']; ?>" <?php } ?>
@@ -96,7 +96,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Password:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-key"></i>
                                         </span>
                                             <input type="text" class="form-control" name="password" placeholder="Enter password"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['password']; ?>" <?php } ?>
@@ -190,7 +190,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Mobile No:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-mobile"></i>
                                         </span>
                                             <input type="text" class="form-control" name="cell_no" placeholder="9232176543210"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['cell_no']; ?>" <?php } ?>
@@ -211,7 +211,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Office No:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-phone"></i>
                                         </span>
                                             <input type="text" class="form-control" name="office_no" placeholder="9232176543210"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['office_no']; ?>" <?php } ?>
@@ -231,7 +231,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Business Name:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="glyphicon glyphicon-user"></i>
+                                            <i class="fa fa-briefcase"></i>
                                         </span>
                                             <input type="text" class="form-control" name="business" placeholder="business"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['business']; ?>" <?php } ?>
@@ -256,7 +256,7 @@ if($loggedInUser == 'admin'){
                                        <strong> <label class="control-label">Website:</label> </strong>
                                        <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-globe"></i>
                                         </span>
                                            <input type="text" class="form-control" name="website" placeholder="http://www.example.com"
                                                <?php if ($_POST) { ?> value="<?php echo $_POST['website']; ?>" <?php } ?>
@@ -276,7 +276,7 @@ if($loggedInUser == 'admin'){
                                       <strong> <label class="control-label">City:</label> </strong>
                                       <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="glyphicon glyphicon-user"></i>
+                                            <i class="fa fa-map-pin"></i>
                                         </span>
                                           <input type="text" class="form-control" name="city" placeholder="Abu dabi"
                                               <?php if ($_POST) { ?> value="<?php echo $_POST['city']; ?>" <?php } ?>
@@ -310,7 +310,7 @@ if($loggedInUser == 'admin'){
                                     <strong> <label class="control-label">Address:</label> </strong>
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-map-marker"></i>
                                         </span>
                                         <input type="text" class="form-control" name="address" placeholder="address"
                                             <?php if ($_POST) { ?> value="<?php echo $_POST['address']; ?>" <?php } ?>
