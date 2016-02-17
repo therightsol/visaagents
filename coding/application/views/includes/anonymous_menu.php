@@ -32,6 +32,38 @@
               </li>
               <li>
                 <a
+                    <?php if(isset($activeMenu)){ if($activeMenu == 'jobs'){ echo 'class="active"'; }} ?>
+                    href="<?php echo $root; ?>Jobs">Jobs
+                </a>
+              </li>
+              
+              
+             
+              
+         <li>
+                            <?php if(isset($activeMenu)){ if($activeMenu == 'Aboutus'){ echo 'class="active"'; }} ?>
+                            <a  href="<?php echo $root; ?>Aboutus">
+                                About Us
+                            </a>
+             <ul>
+                                <li class="dropdown">
+                                    <a href="<?php echo $root; ?>Visa_Procedure">
+                                        Services
+                                    </a>
+             </ul>
+                                   
+                                
+                                
+         </li>
+                                  </li>
+               <li>
+                <a
+                    <?php if(isset($activeMenu)){ if($activeMenu == 'contact'){ echo 'class="active"'; }} ?>
+                    href="<?php echo $root; ?>Contact">Contact Us
+                </a>
+              </li>
+              <li>
+                <a
                     <?php if(isset($activeMenu)){ if($activeMenu == 'login'){ echo 'class="active"'; }} ?>
                     href="<?php echo $root; ?>Login">Login
                 </a>
@@ -42,18 +74,11 @@
                     href="<?php echo $root; ?>Register">Register
                 </a>
               </li>
-              <li>
-                <a href="<?php echo $root; ?>portfolio">Portfolio</a>
-                <ul class="dropdown">
-                  <li><a href="#">2 Columns</a>
-                  </li>
-                  <li><a href="#">3 Columns</a>
-                  </li>
-                  <li><a href="#">4 Columns</a>
-                  </li>
-                  <li><a href="#">Single Project</a>
-                  </li>
-                </ul>
+               <li>
+                <a
+                    <?php if(isset($activeMenu)){ if($activeMenu == 'terms'){ echo 'class="active"'; }} ?>
+                    href="<?php echo $root; ?>Terms_and_conditions"> Terms and Conditions
+                </a>
               </li>
             </ul>
             <!-- End Navigation List -->

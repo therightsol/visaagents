@@ -18,6 +18,12 @@
       }
       elseif($pagename == 'Register'){ echo 'Register Here';
       }
+      elseif($pagename == 'jobs'){ echo 'Register Here';
+      }
+      elseif($pagename == 'terms'){ echo 'Terms & conditions';
+      }
+      elseif($pagename == 'Visa_Procedure'){ echo 'Visa Procedure';
+      }
       }else{
         echo 'Visa Processing | Noman Ahmad';
       }
