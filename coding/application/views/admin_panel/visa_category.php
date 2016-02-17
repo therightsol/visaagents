@@ -52,7 +52,7 @@ if($loggedInUser == 'admin'){
                                                     <label class="control-label">Visa Category:</label>
                                                     <div class="input-group">
                                                     <span class="input-group-addon">
-                                                        <i class="glyphicon glyphicon-user"></i>
+                                                        <i class="fa fa-chevron-right"></i>
                                                     </span>
                                                         <input type="text" class="form-control" name="visa_category" placeholder="Enter visa category" />
 
@@ -72,7 +72,7 @@ if($loggedInUser == 'admin'){
                                                     <label class="control-label">Visa Description:</label>
                                                     <div class="input-group">
                                                     <span class="input-group-addon">
-                                                        <i class="glyphicon glyphicon-user"></i>
+                                                        <i class="fa fa-chevron-right"></i>
                                                     </span>
                                                         <input type="text" class="form-control" name="description" placeholder="Enter visa description" />
 

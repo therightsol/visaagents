@@ -55,7 +55,7 @@ if($loggedInUser == 'admin'){
                                                 <label class="control-label">Kafeel Code:</label>
                                                 <div class="input-group">
                                                 <span class="input-group-addon">
-                                                    <i class="fa fa-envelope-o"></i>
+                                                    <i class="fa fa-user"></i>
                                                 </span>
                                                             <select name="kafeel_code" id="kafeel_code" class="form-control" ></select>
                                                         </div>
@@ -140,7 +140,7 @@ if($loggedInUser == 'admin'){
                                                 <label class="control-label">Visa Category:</label>
                                                 <div class="input-group">
                                                     <span class="input-group-addon">
-                                                        <i class="glyphicon glyphicon-user"></i>
+                                                        <i class="fa fa-chevron-right"></i>
                                                     </span> 
                                                     <select name="visa_category" class="form-control get_category"></select>
 

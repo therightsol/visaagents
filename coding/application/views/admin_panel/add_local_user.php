@@ -56,7 +56,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Username:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-user"></i>
                                         </span>
                                             <input type="text" class="form-control" name="username" placeholder="Enter username"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['username']; ?>" <?php } ?>
@@ -97,7 +97,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Password:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-key"></i>
                                         </span>
                                             <input type="text" class="form-control" name="password" placeholder="Enter password"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['password']; ?>" <?php } ?>
@@ -170,7 +170,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Mobile No:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-mobile"></i>
                                         </span>
                                             <input type="number" class="form-control" name="cell_no" placeholder="9232176543210"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['cell_no']; ?>" <?php } ?>
@@ -191,7 +191,7 @@ if($loggedInUser == 'admin'){
                                     <strong> <label class="control-label">Address:</label> </strong>
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-globe"></i>
                                         </span>
                                         <input type="text" class="form-control" name="address" placeholder="address"
                                             <?php if ($_POST) { ?> value="<?php echo $_POST['address']; ?>" <?php } ?>
@@ -214,7 +214,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">CNIC No:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-list"></i>
                                         </span>
                                             <input type="number" class="form-control" name="cnic" placeholder="350122222222 must be 13 chractor"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['cnic']; ?>" <?php } ?>
@@ -235,7 +235,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Experience:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-chevron-right"></i>
                                         </span>
                                             <input type="text" class="form-control" name="experience" placeholder="enter experience"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['experience']; ?>" <?php } ?>
@@ -260,7 +260,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Salary:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-money"></i>
                                         </span>
                                             <input type="number" class="form-control" name="salary" placeholder="enter salary in numbers"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['salary']; ?>" <?php } ?>
@@ -280,7 +280,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Education:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-book"></i>
                                         </span>
                                             <input type="text" class="form-control" name="education" placeholder="address"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['education']; ?>" <?php } ?>
@@ -303,7 +303,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Reference By:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-chevron-right"></i>
                                         </span>
                                             <input type="text" class="form-control" name="reference" placeholder="enter name"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['reference']; ?>" <?php } ?>
@@ -323,7 +323,7 @@ if($loggedInUser == 'admin'){
                                         <strong> <label class="control-label">Join Date:</label> </strong>
                                         <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
+                                            <i class="fa fa-calendar"></i>
                                         </span>
                                             <input type="text" class="form-control date" name="date_join" placeholder="address"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['date_join']; ?>" <?php } ?>

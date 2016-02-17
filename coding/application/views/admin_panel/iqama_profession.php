@@ -51,7 +51,7 @@ if($loggedInUser == 'admin'){
                                                     <label class="control-label">Iqama Profession:</label>
                                                     <div class="input-group">
                                                     <span class="input-group-addon">
-                                                        <i class="glyphicon glyphicon-user"></i>
+                                                        <i class="fa fa-chevron-right"></i>
                                                     </span>
                                                         <input type="text" class="form-control" name="iqama_profession" placeholder="Enter iqama profession" />
 
