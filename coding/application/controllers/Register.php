@@ -87,6 +87,7 @@ class Register extends CI_Controller {
                     $success = $this->user->insertRecord();
 
                     //sending email for validation;
+                    $this->email($userName, $email);
                     if ($success) {
                         // echo var_dump($success);
                         $data['data_saved'] = 'yes';
@@ -108,6 +109,32 @@ class Register extends CI_Controller {
         } else {
             $this->load->view('reg_form', $data);
         }
+    }
+
+
+    private function email($user_name, $userEmail) {
+        $this->load->model('basic_functions');
+        $this->load->library('encrypt');
+        $encryptionKey = $this->basic_functions->getEncryptionKey();
+
+        $encrypteUserName = $this->encrypt->encode($user_name, $encryptionKey);
+
+        $encrypteUserName = base64_encode($encrypteUserName);   // changing username to base64 algo.
+        //echo $encrypteUserName; exit();
+
+        $message = '<b> Welcome! ' . $user_name . ' </b><br /><br />'
+            . 'You are successfully registered. Kindly click on below link to activate your account. <br />'
+            . '<a href="' . base_url() . 'verify/ve?uid=' . $encrypteUserName . '" > Click here to activate </a>'
+            . '<br /><br /><br /><br /><br /><br /><br /><hr />'
+            . '<strong>ADMIN - HVC </strong><br /><br />'
+            . '<hr /> Thanks to choose our company <br /> <br />';
+
+
+        $this->load->model('send_email');
+        $this->load->library('email');
+        $success = $this->send_email->send($user_name, $userEmail, $message, 'Verify Email');
+        return $success;
+
     }
 
 }

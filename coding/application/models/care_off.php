@@ -9,11 +9,11 @@ class Care_off extends MY_Model {
     const DB_TableName = 'cares_off';
     const DB_TablePK = 'uid';
     
-    public $full_name = '';
-    public $city = '';
-    public $phone = '';
-    public $address = '';
-    public $email = '';
+    public $co_full_name = '';
+    public $co_city = '';
+    public $co_phone = '';
+    public $co_address = '';
+    public $co_email = '';
     
 } ?>
 	

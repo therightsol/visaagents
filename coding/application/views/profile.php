@@ -139,7 +139,7 @@ if($loggedInUser == 'admin'){
                 <br>
 
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-2 toppad" >
 
 
 
@@ -154,7 +154,7 @@ if($loggedInUser == 'admin'){
 
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-3 col-lg-3 " align="center" style="min-height: 372px;">
+                            <div class="col-md-3 col-lg-3 " align="center" style="min-height: 450px;">
                                 <div class="col-md-12 img_div" align="center" id="img_div" >
                                     <img alt="User Pic" src="
                                     <?php
@@ -170,8 +170,7 @@ if($loggedInUser == 'admin'){
                                     <ul class="nav nav-pills nav-stacked">
                                         <li class="active"><a data-toggle="pill"  href="#profile">Profile</a></li>
                                         <li><a data-toggle="pill"  href="#history">History</a></li>
-                                        <li><a href="#">Menu 2</a></li>
-                                        <li><a href="#">Menu 3</a></li>
+                                        <li><a data-toggle="pill"  href="#iqama">Iqama</a></li>
                                     </ul>
                                 </div>
 
@@ -232,27 +231,79 @@ if($loggedInUser == 'admin'){
 
                                     </div>
                                     <div id="history" class="tab-pane fade">
-                                        <h3>Menu 1</h3>
-                                        <p>Some content in menu 1.</p>
+                                        <div style="height: 450px; overflow: scroll">
+                                            <?php
+                                            $i = 1;
+                                                    foreach($visa_history as $key => $value){ ?>
+                                                        <table id="profile" class="table table-user-information">
+                                                            <thead>
+                                                            <tr>
+                                                                <th colspan="2"><?php echo $value['vh_date'] ?></th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr>
+                                                                <td>Number of Visa:</td>
+                                                                <td><?php echo $value['number_of_visa'] ?></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Visa Price:</td>
+                                                                <td><?php echo $value['number_of_visa'] ?></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Visa Category:</td>
+                                                                <td><?php echo $value['vc_title'] ?></td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>Visa Profession</td>
+                                                                <td><?php echo $value['vp_profession']; ?></td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                 <?php $i++;  }
+                                            ?>
+                                        </div>
+
                                     </div>
-                                    <div id="menu2" class="tab-pane fade">
-                                        <h3>Menu 2</h3>
-                                        <p>Some content in menu 2.</p>
+                                    <div id="iqama" class="tab-pane fade">
+                                        <div style="height: 450px; overflow: scroll">
+                                            <?php
+                                            $i = 1;
+                                            foreach($iqama_expiry as $key => $value){ ?>
+                                                <table id="profile" class="table table-user-information">
+                                                    <thead>
+                                                    <tr>
+                                                        <th colspan="2"><a href="#">Iqma Issue Data(<?php echo $value['iqama_issue_date'] ?>)</a> </th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Visa No:</td>
+                                                        <td><?php echo $value['visa_no'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Iqama No:</td>
+                                                        <td><?php echo $value['iqama_no'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Iqama Expiry:</td>
+                                                        <td><?php echo $value['iqama_expiry_date'] ?></td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+
+                                                <?php $i++;  }
+                                            ?>
+                                        </div>
                                     </div>
                                 </div>
 
                                     </div>
-                                <a href="#" class="btn btn-primary">My Sales Performance</a>
-                                <a href="#" class="btn btn-primary">Team Sales Performance</a>
-                            </div>
+                                </div>
                         </div>
-                    </div>
-                    <div class="panel-footer">
-                        <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                        <span class="pull-right">
-                            <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                            <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-                        </span>
                     </div>
 
                 </div>

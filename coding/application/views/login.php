@@ -39,6 +39,12 @@ if($loggedInUser == 'admin'){
                                                 Kindly wait for admin approval <strong>or</strong> send us email
                                                 <a href="<?php echo $root; ?>contact">here</a>
                                             </div>
+                                            <?php }
+                                            if ($is_email_approved != '') { ?>
+                                            <div class="alert alert-info">
+                                                Sorry! Your Email Address is not verified <br>
+                                                Kindly Verify you email address!
+                                            </div>
                                             <?php } ?>
                                            <div class="form-group <?php if($_POST){ if (form_error('email') != '' || $record_found != '') { ?> has-error <?php } } ?> " >
                                               

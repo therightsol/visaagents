@@ -145,8 +145,11 @@ if($loggedInUser == 'admin'){
                    </div>
                 </form>
                 <?php }else{ ?>
-                    <div class="alert alert-success col-sm-8 col-md-offset-2" style="margin-top: 8%; margin-bottom: 10%;">
-                        Register Successfully kindly wait for admin approval!
+                    <div class="alert alert-success">
+                        Your account has been successfully created. Kindly check your email to continue. <br />
+                    </div>
+                    <div class="alert alert-warning">
+                        Your request will not continue until you confirm your account.
                     </div>
                 <?php }
                  }else{ ?>

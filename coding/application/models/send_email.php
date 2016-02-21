@@ -3,7 +3,7 @@
 
 class Send_email extends MY_Model {
 
-    public function send($user_name, $userEmail, $message) {
+    public function send($user_name, $userEmail = false, $message, $subject, $type = false) {
         /*
          * Before loading this function
          *          load
@@ -31,14 +31,17 @@ class Send_email extends MY_Model {
             if ($v['config'] == 'reply_to') {
                 $reply_to = $v['value'];
             }
-            if ($v['config'] == 'subject') {
-                $subject = $v['value'];
-            }
             if ($v['config'] == 'type') {
-                $type = $v['value'];
+                $db_type = $v['value'];
             }
         }
 
+        if($userEmail == false){
+            $userEmail = $from;
+        }
+        if($type == false){
+            $type = $db_type;
+        }
 
         //config email from database
 

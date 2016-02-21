@@ -14,6 +14,6 @@ public $visa_profession = '';
 public $number_of_visa = '';
 public $visa_price = '';
 public $visa_category = '';
-public $date = '';
-public $comment = '';
+public $vh_date = '';
+public $vh_comment = '';
 }

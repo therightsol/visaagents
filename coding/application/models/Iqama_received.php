@@ -9,8 +9,8 @@ class Iqama_received extends MY_Model {
     const DB_TableName = 'iqama_received_by';
     const DB_TablePK = 'irb_id';
 
-    public $received_by = '';
-    public $name = '';
-    public $city = '';
-    public $phone = '';
+    public $irb_received_by = '';
+    public $irb_name = '';
+    public $irb_city = '';
+    public $irb_phone = '';
 }

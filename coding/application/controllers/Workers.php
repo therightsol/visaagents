@@ -1,18 +1,68 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Add_worker extends CI_Controller {
+class Workers extends CI_Controller {
     public function index(){
+        $data['pagename'] = 'view_worker';
+        $data['activeMenu'] = 'view_worker';
+        $data['all_worker'] = 'yes';
+
+        $data['cnic_exist'] = '';
+        $data['data_saved'] = '';
+
+        $this->load->model('worker');
+        $data['workers'] = $this->worker->getRecord();
+        $this->load->view('view_worker', $data);
+    }
+
+    public function detail($worker_id){
+        $data['activeMenu'] = 'view_worker';
+        $data['view_worker'] = 'yes';
+
+        $this->load->model('worker');
+        $array = array(
+            'cares_off' => 'cares_off.co_id = workers.co_id',
+            'iqama_professions' => 'iqama_professions.ip_id = workers.ip_id',
+            'visa_categories' => 'visa_categories.vc_id = workers.vc_id',
+            'insurance_statuses' => 'insurance_statuses.ins_id = workers.ins_id',
+            'visa_statuses' => 'visa_statuses.vs_id = workers.vs_id',
+            'iqama_statuses' => 'iqama_statuses.is_id = workers.is_id',
+            'payment_histories' => 'payment_histories.ph_id = workers.ph_id',
+            'iqama_received_by' => 'iqama_received_by.irb_id = workers.iqama_received_by'
+        );
+
+        $data['worker_info'] = $this->worker->sql_join_multi(['workers.w_id' => $worker_id], $array);
+//echo '<pre>'.var_export($data['worker_info'], true).'</pre>';exit;
+        $this->load->view('view_worker', $data);
+
+    }
+
+
+    public function update($worker_id){
         $data['pagename'] = 'add_worker';
         $data['activeMenu'] = 'add_worker';
+        $data['update_worker'] = 'yes';
 
         $data['cnic_exist'] = '';
         $data['data_saved'] = '';
         $active_user = $this->session->userdata('email');
 
-        if(filter_input_array(INPUT_POST)){
+        $this->load->model('worker');
+        $array = array(
+            'cares_off' => 'cares_off.co_id = workers.co_id',
+            'iqama_professions' => 'iqama_professions.ip_id = workers.ip_id',
+            'visa_categories' => 'visa_categories.vc_id = workers.vc_id',
+            'insurance_statuses' => 'insurance_statuses.ins_id = workers.ins_id',
+            'visa_statuses' => 'visa_statuses.vs_id = workers.vs_id',
+            'iqama_statuses' => 'iqama_statuses.is_id = workers.is_id',
+            'payment_histories' => 'payment_histories.ph_id = workers.ph_id',
+            'iqama_received_by' => 'iqama_received_by.irb_id = workers.iqama_received_by'
+        );
 
-            //echo '<pre>'.var_export($_POST, true).'</pre>';exit;
+        $data['worker_info'] = $this->worker->sql_join_multi(['workers.w_id' => $worker_id], $array);
+        $worker = $data['worker_info'];
+        //echo '<pre>'.var_export($data['worker_info'], true).'</pre>';exit;
+        if(filter_input_array(INPUT_POST)){
 
             $this->load->helper('security');
             $rules = array(
@@ -127,47 +177,11 @@ class Add_worker extends CI_Controller {
                 array('field' => 'kafeel_code',
                     'label' => 'Kafeel code',
                     'rules' => 'required|max_length[9]|xss_clean|encode_php_tags|trim'
-                ),
-
-
-                array('field' => 'total_amount',
-                    'label' => 'total amount',
-                    'rules' => 'required|max_length[50]|xss_clean|encode_php_tags|trim'
-                ),
-
-                array('field' => 'amount_received',
-                    'label' => 'amount received',
-                    'rules' => 'required|max_length[50]|xss_clean|encode_php_tags|trim'
-                ),
-
-                array('field' => 'currency_for_amount_received',
-                    'label' => 'Currency for amount received',
-                    'rules' => 'required|max_length[50]|xss_clean|encode_php_tags|trim'
-                ),
-
-                array('field' => 'currency_rate_amount_received',
-                    'label' => 'Currency_rate_amount_received',
-                    'rules' => 'required|max_length[50]|xss_clean|encode_php_tags|trim'
-                ),
-
-                array('field' => 'currency_for_receiving_amount',
-                    'label' => 'Currency for receiving amount',
-                    'rules' => 'required|max_length[50]|xss_clean|encode_php_tags|trim'
-                ),
-
-                array('field' => 'currency_rate_for_receiving_amount',
-                    'label' => 'Currency rate for receiving amount',
-                    'rules' => 'required|max_length[50]|xss_clean|encode_php_tags|trim'
-                ),
-
-                array('field' => 'transaction_cheque_code',
-                    'label' => 'Transaction cheque code',
-                    'rules' => 'required|max_length[50]|xss_clean|encode_php_tags|trim'
                 )
-
-
             );
             //validation run
+
+
             $this->load->library('form_validation');
             $this->form_validation->set_rules($rules);
             $this->form_validation->set_error_delimiters('', '');
@@ -176,99 +190,99 @@ class Add_worker extends CI_Controller {
 
 
                 $this->load->model('care_off');
-                $this->care_off->co_full_name = $this->input->post('co_name', true);
-                $this->care_off->co_city = $this->input->post('co_city', true);
-                $this->care_off->co_phone = $this->input->post('co_phone', true);
-                $this->care_off->co_address = $this->input->post('co_address', true);
-                $this->care_off->co_email = $this->input->post('co_email', true);
-                $care_off_id = $this->care_off->insertRecord();
+                $care_off_array = array(
+                    'co_full_name' => $this->input->post('co_name', true),
+                    'co_city' => $this->input->post('co_city', true),
+                    'co_phone' => $this->input->post('co_phone', true),
+                    'co_address' => $this->input->post('co_address', true),
+                    'co_email' => $this->input->post('co_email', true),
+                );
+
+                $this->care_off->updateRecord('co_id', $care_off_array, $worker[0]['co_id']);
 
                 $this->load->model('insurance_status');
-                $this->insurance_status->isn_status = $this->input->post('insurance', true);
-                $ins_id = $this->insurance_status->insertRecord();
+                $this->insurance_status->updateRecord(
+                    'ins_id', ['isn_status' => $this->input->post('insurance', true)],
+                    $worker[0]['ins_id']
+                );
 
                 $this->load->model('iqama_received');
-                $this->iqama_received->irb_received_by = $this->input->post('iqama_received_by', true);
-                $this->iqama_received->irb_name = $this->input->post('iqama_received_by_name', true);
-                $this->iqama_received->irb_city = $this->input->post('iqama_received_by_city', true);
-                $this->iqama_received->irb_phone = $this->input->post('iqama_received_by_phone', true);
-                $irb_id = $this->iqama_received->insertRecord();
+                $irb_array = array(
+                    'irb_received_by' => $this->input->post('iqama_received_by', true),
+                    'irb_name' => $this->input->post('iqama_received_by_name', true),
+                    'irb_city' => $this->input->post('iqama_received_by_city', true),
+                    'irb_phone' => $this->input->post('iqama_received_by_phone', true)
+
+                );
+
+                $this->iqama_received->updateRecord('irb_id', $irb_array, $worker[0]['iqama_received_by']);
 
                 $this->load->model('visa_status');
-                $this->visa_status->vs_status = $this->input->post('pk_status', true);
-                $vs_id = $this->visa_status->insertRecord();
+                $this->visa_status->updateRecord('vs_id', ['vs_status' => $this->input->post('pk_status', true)], $worker[0]['vs_id']);
 
                 $this->load->model('iqama_status');
-                $this->iqama_status->is_status = $this->input->post('ksa_status', true);
-                $iqama_status_id = $this->iqama_status->insertRecord();
+                $this->iqama_status->updateRecord('is_id', ['is_status' => $this->input->post('ksa_status', true)], $worker[0]['is_id']);
 
                 $this->load->model('payment_history');
+                /*$payment_history_array = array(
 
-                $this->payment_history->worker_id = $this->input->post('cnic', TRUE);
-                $this->payment_history->total_amount = $this->input->post('total_amount', true);
-                $this->payment_history->amount_received = $this->input->post('amount_received', true);
-                $this->payment_history->amount_remaining = $this->input->post('amount_remaining', true);
-                $this->payment_history->remaining_till = $this->input->post('remaining_till', true);
-                $this->payment_history->receiving_date = time();
-                $this->payment_history->currency_for_amount_received = $this->input->post('currency_for_amount_received', true);
-                $this->payment_history->currency_rate_amount_received = $this->input->post('currency_rate_amount_received', true);
-                $this->payment_history->currency_for_receiving_amount = $this->input->post('currency_for_receiving_amount', true);
-                $this->payment_history->currency_rate_for_receiving_amount = $this->input->post('currency_rate_for_receiving_amount', true);
-                $this->payment_history->transaction_cheque_code = $this->input->post('transaction_cheque_code', true);
-                $this->payment_history->record_inserted_by_id = $active_user;
-                $this->payment_history->record_inserted_date = time();
-                $this->payment_history->extra_info = $this->input->post('extra_info', true);
-                $payment_id = $this->payment_history->insertRecord();
-
+                    'worker_id' => $this->input->post('cnic', TRUE),
+                    'total_amount' => $this->input->post('total_amount', true),
+                    'amount_received' => $this->input->post('amount_received', true),
+                    'amount_remaining' => $this->input->post('amount_remaining', true),
+                    'remaining_till' => $this->input->post('remaining_till', true),
+                    'receiving_date' => time(),
+                    'currency_for_amount_received' => $this->input->post('currency_for_amount_received', true),
+                    'currency_rate_amount_received' => $this->input->post('currency_rate_amount_received', true),
+                    'currency_for_receiving_amount' => $this->input->post('currency_for_receiving_amount', true),
+                    'currency_rate_for_receiving_amount' => $this->input->post('currency_rate_for_receiving_amount', true),
+                    'transaction_cheque_code' => $this->input->post('transaction_cheque_code', true),
+                    'record_inserted_by_id' => $active_user,
+                    'record_inserted_date' => time(),
+                    'extra_info' => $this->input->post('extra_info', true),
+                );
+                $payment_id = $this->payment_history->updateRecord();
+*/
                 $this->load->model('worker');
-                $this->worker->w_fname = $this->input->post('fname', TRUE);
-                $this->worker->w_lname = $this->input->post('lname', TRUE);
-                $this->worker->w_dob = $this->input->post('dob', TRUE);
-                $this->worker->w_cnic = $this->input->post('cnic', TRUE);
-                $this->worker->w_passport = $this->input->post('passport', TRUE);
-                $this->worker->w_phone = $this->input->post('phone', TRUE);
-                $this->worker->w_address = $this->input->post('address', TRUE);
-                $this->worker->w_city = $this->input->post('city', TRUE);
-                $this->worker->w_country = $this->input->post('country', TRUE);
-                $this->worker->co_id = $care_off_id;
-                $this->worker->visa_no = $this->input->post('visa', TRUE);
-                $this->worker->iqama_no = $this->input->post('iqama', TRUE);
-                $this->worker->ip_id = $this->input->post('iqama_profession', TRUE);
-                $this->worker->vc_id = $this->input->post('visa_category', TRUE);
-                $this->worker->ins_id = $ins_id;
-                $this->worker->vs_id = $vs_id;
-                $this->worker->is_id = $iqama_status_id;
-                $this->worker->ph_id = $payment_id;
-                $this->worker->kafeel_code = $this->input->post('kafeel_code', TRUE);
-                $this->worker->iqama_issue_date = strtotime($this->input->post('iqama_issue', TRUE));
-                $this->worker->iqama_expiry_date = strtotime($this->input->post('iqama_expiry', TRUE));
-                $this->worker->description = $this->input->post('description', TRUE);
-                $this->worker->iqama_received_by = $irb_id;
+                $worker_array = array(
+                    'w_fname' => $this->input->post('fname', TRUE),
+                    'w_lname' => $this->input->post('lname', TRUE),
+                    'w_dob' => $this->input->post('dob', TRUE),
+                    'w_passport' => $this->input->post('passport', TRUE),
+                    'w_phone' => $this->input->post('phone', TRUE),
+                    'w_address' => $this->input->post('address', TRUE),
+                    'w_city' => $this->input->post('city', TRUE),
+                    'w_country' => $this->input->post('country', TRUE),
+                    'visa_no' => $this->input->post('visa', TRUE),
+                    'iqama_no' => $this->input->post('iqama', TRUE),
+                    'ip_id' => $this->input->post('iqama_profession', TRUE),
+                    'vc_id' => $this->input->post('visa_category', TRUE),
+                    'kafeel_code' => $this->input->post('kafeel_code', TRUE),
+                    'iqama_issue_date' => $this->input->post('iqama_issue', TRUE),
+                    'iqama_expiry_date' => $this->input->post('iqama_expiry', TRUE),
+                    'w_description' => $this->input->post('description', TRUE),
 
-                $success = $this->worker->insertRecord();
-
-
-                $this->load->model('track_application');
-                $this->track_application->application_code = $this->input->post('cnic', TRUE);
-                $this->track_applications->insertRecord();
+            );
+                $success = $this->worker->updateRecord('w_id', $worker_array, $worker[0]['w_id']);
 
 
                 if($success){
 
                     $data['data_saved'] = 'yes';
-                    $this->load->view('add_worker', $data);
+                    $this->load->view('view_worker', $data);
+                }else{
+                    $this->load->view('view_worker', $data);
                 }
 
 
             } else {
                 //echo 'form not validate';
-                $this->load->view('add_worker', $data);
+                $this->load->view('view_worker', $data);
             }
         }else {
-            $this->load->view('add_worker', $data);
+            $this->load->view('view_worker', $data);
         }
     }
 
-}
 
-?>
+}

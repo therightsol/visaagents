@@ -9,6 +9,7 @@ class Login extends CI_Controller {
         $data['pagename'] = 'Login';
         $data['is_admin_approved'] = '';
         $data['record_found'] = '';
+        $data['is_email_approved'] = '';
 
         if(filter_input_array(INPUT_POST)){
             $this->load->helper('security');
@@ -37,6 +38,7 @@ class Login extends CI_Controller {
                 //echo '<pre>'.var_export($db_record, true).'</pre>';exit;
                 // checking is email found or not and user is active.
                 $email_found = '';
+                $email_verify = '';
                 if($db_record){
 
                     if($db_record[0]['is_admin_approved'] != 1){
@@ -46,11 +48,18 @@ class Login extends CI_Controller {
                     }else{
                         $email_found = 'yes';
                     }
+                    if($db_record[0]['is_email_verified'] != 1){
+
+                        $data['is_email_approved'] = 'no';
+
+                    }else{
+                        $email_verify = 'yes';
+                    }
                 }  else {
                     $data['record_found'] = 'email_not_found';
                 }
 
-                if ($email_found == '') {
+                if ($email_found == '' || $email_verify == '') {
 
 
                     $this->load->view('login', $data);

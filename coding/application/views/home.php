@@ -939,6 +939,30 @@ if($loggedInUser == 'admin'){
       <!-- .container -->
     </div>
     <!-- End Client/Partner Section -->
-    
+
+
+
+<?php if ($loggedInUser == 'admin' || $loggedInUser == 'local_user'){ ?>
+
+
+    <script>
+      $(document).ready(function(){
+        $.ajax({
+          url: "<?php echo $root; ?>notification", // Url to which the request is send
+          type: "POST",             // Type of request to be send, called as method
+          success: function(data)   // A function to be called if request succeeds
+          {
+            console.log(data)
+          }
+        });
+      });
+    </script>
+
+<?php } ?>
+
+
+
+
+
     <?php include 'includes/footer.php'; ?>
 

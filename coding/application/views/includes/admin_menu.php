@@ -31,10 +31,14 @@
           </a>
         </li>
         <li>
-          <a
-              <?php if(isset($activeMenu)){ if($activeMenu == 'add_worker'){ echo 'class="active"'; }} ?>
-              href="<?php echo $root; ?>add_worker">Add Worker
+          <a<?php if(isset($activeMenu)){ if($activeMenu == 'worker'){ echo 'class="active"'; }} ?>
+              href="#">Worker
           </a>
+          <ul class="dropdown">
+            <li><a href="<?php echo $root; ?>add_worker">Add Worker</a></li>
+            <li><a href="<?php echo $root; ?>view_worker">View Worker</a></li>
+            <li><a href="<?php echo $root; ?>worker_application">Application Status</a></li>
+          </ul>
         </li>
         <li>
           <a

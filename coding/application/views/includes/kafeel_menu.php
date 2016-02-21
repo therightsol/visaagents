@@ -25,7 +25,10 @@
             <!-- Start Navigation List -->
             <ul class="nav navbar-nav navbar-right">
               <li>
-                <a class="active" href="<?php echo $root; ?>home">Home</a> 
+                <a
+                    <?php if(isset($activeMenu)){ if($activeMenu == 'home'){ echo 'class="active"'; }} ?>
+                    href="<?php echo $root; ?>">Home
+                </a>
               </li>
                <?php 
                $email = $this->session->userdata('email');
@@ -38,8 +41,11 @@
               </li> 
                 <?php } ?>
               <li>
-                <a href="<?php echo $root; ?>AddVisa">Add Visa</a> 
-              </li> 
+                <a
+                    <?php if(isset($activeMenu)){ if($activeMenu == 'profile'){ echo 'class="active"'; }} ?>
+                    href="<?php echo $root; ?>profile">Profile
+                </a>
+              </li>
               <li>
                 <a href="<?php echo $root; ?>portfolio">Portfolio</a>
                 <ul class="dropdown">

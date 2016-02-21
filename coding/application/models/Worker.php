@@ -9,15 +9,15 @@ class Worker extends MY_Model {
     const DB_TableName = 'workers';
     const DB_TablePK = 'w_id';
     
-    public $fname = '';
-    public $lname = '';
-    public $dob = '';
-    public $cnic = '';
-    public $passport = '';
-    public $phone = '';
-    public $address = '';
-    public $city = '';
-    public $country = '';
+    public $w_fname = '';
+    public $w_lname = '';
+    public $w_dob = '';
+    public $w_cnic = '';
+    public $w_passport = '';
+    public $w_phone = '';
+    public $w_address = '';
+    public $w_city = '';
+    public $w_country = '';
     public $co_id = '';
     public $visa_no = '';
     public $iqama_no = '';

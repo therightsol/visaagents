@@ -778,42 +778,31 @@ class Admin_panel extends CI_Controller
         $data['pagename'] = 'addvisa';
         $data['activeMenu'] = 'admin_panel';
         $data['success'] = '';
+        $data['success_del'] = '';
+        $data['notdel'] = '';
 
+        $this->load->model('visa_history');
+        $array = array(
+            'visa_professions' => 'visa_professions.vp_id = visa_histories.visa_profession',
+            'visa_categories' => 'visa_categories.vc_id = visa_histories.visa_category'
+        );
 
+        $data['visa_info'] = $this->visa_history->sql_join_multi(false, $array);
+//echo '<pre>'.var_export($data['visa_info'], true).'</pre>';exit;
 
-        if(filter_input_array(INPUT_POST)){
-
+        if(filter_input_array(INPUT_POST)) {
+            $this->load->model('visa_history');
             $this->load->helper('security');
-            $rules = array(
-                array('field' => 'date',
-                    'label' => 'Date',
-                    'rules' => 'required|max_length[32]|min_length[6]|xss_clean|encode_php_tags|trim'
-                ),
-                array('field' => 'kafeel_code',
-                    'label' => 'Kafeel Name',
-                    'rules' => 'required|max_length[9]|xss_clean|encode_php_tags|trim'
-                ),
-                array('field' => 'visa_profession',
-                    'label' => 'visa profession',
-                    'rules' => 'max_length[9]|xss_clean|encode_php_tags|trim'
-                ),
-                array('field' => 'no_of_visas',
-                    'label' => 'Number of Visa',
-                    'rules' => 'required|max_length[32]|xss_clean|encode_php_tags|trim'
-                ),
-                array('field' => 'visa_price',
-                    'label' => 'visa price',
-                    'rules' => 'max_length[50]|xss_clean|encode_php_tags|trim'
-                ),
-                array(
-                    'field' => 'visa_category',
-                    'label' => 'visa category',
-                    'rules' => 'required|max_length[9]|xss_clean|encode_php_tags|trim'
-                ),
-                array('field' => 'comment',
-                    'label' => 'Comment',
-                    'rules' => 'xss_clean|max_length[50]|encode_php_tags|trim'
-                )
+
+            $kafeel_code = $this->input->post('add', true);
+            $visa_dell = $this->input->post('vh_id', true);
+
+
+            if(isset($kafeel_code)){
+
+
+
+            $rules = array(array('field' => 'date', 'label' => 'Date', 'rules' => 'required|max_length[32]|min_length[6]|xss_clean|encode_php_tags|trim'), array('field' => 'kafeel_code', 'label' => 'Kafeel Name', 'rules' => 'required|max_length[9]|xss_clean|encode_php_tags|trim'), array('field' => 'visa_profession', 'label' => 'visa profession', 'rules' => 'max_length[9]|xss_clean|encode_php_tags|trim'), array('field' => 'no_of_visas', 'label' => 'Number of Visa', 'rules' => 'required|max_length[32]|xss_clean|encode_php_tags|trim'), array('field' => 'visa_price', 'label' => 'visa price', 'rules' => 'max_length[50]|xss_clean|encode_php_tags|trim'), array('field' => 'visa_category', 'label' => 'visa category', 'rules' => 'required|max_length[9]|xss_clean|encode_php_tags|trim'), array('field' => 'comment', 'label' => 'Comment', 'rules' => 'xss_clean|max_length[50]|encode_php_tags|trim')
 
             );
             $this->load->library('form_validation');
@@ -822,26 +811,45 @@ class Admin_panel extends CI_Controller
 
             if (!$this->form_validation->run($rules) == FALSE) {
 
-                $this->load->model('visa_history');
+
                 $this->visa_history->kafeel_code = $this->input->post('kafeel_code', true);
                 $this->visa_history->visa_profession = $this->input->post('visa_profession', true);
                 $this->visa_history->number_of_visa = $this->input->post('no_of_visas', true);
                 $this->visa_history->visa_price = $this->input->post('visa_price', true);
                 $this->visa_history->visa_category = $this->input->post('visa_category', true);
-                $this->visa_history->date = $this->input->post('date', true);
-                $this->visa_history->comment = $this->input->post('comment', true);
+                $this->visa_history->vh_date = $this->input->post('date', true);
+                $this->visa_history->vh_comment = $this->input->post('comment', true);
 
                 $success = $this->visa_history->insertRecord();
 
-                if($success){
+                if ($success) {
                     $data['success'] = 'yes';
-                    $this->load->view('admin_panel/add_newvisa' , $data);
+                    $this->load->view('admin_panel/add_newvisa', $data);
                 }
 
+            } else {
+                $this->load->view('admin_panel/add_newvisa', $data);
+            }
+
+        }elseif(isset($visa_dell)){
+
+                for ($i = 0; $i < sizeof($visa_dell); $i++) {
+                    $id = $visa_dell[$i];
+                    $successdell = $this->visa_history->deleteRecord('vh_id', $id);
+                    if (empty($successdell)) {
+                        $data['notdel'] = 'yes';
+                        $this->load->view('admin_panel/add_newvisa', $data);
+                        break;
+                    }
+                }
+                if ($successdell) {
+                    $data['visa_info'] = $this->visa_history->sql_join_multi(false, $array);
+                    $data['success_del'] = 'yes';
+                    $this->load->view('admin_panel/add_newvisa', $data);
+                }
             }else{
                 $this->load->view('admin_panel/add_newvisa' , $data);
             }
-
         }else{
             $this->load->view('admin_panel/add_newvisa' , $data);
         }
@@ -856,9 +864,9 @@ class Admin_panel extends CI_Controller
         $this->load->model('visa_profession');
         $data['visa_professions'] = $this->visa_profession->getRecord();
         if (filter_input_array(INPUT_POST)) {
-
+            $profession_delete = $this->input->post('vp_id', true);
             $input_profession = $this->input->post('visa_profession', true);
-
+            $pk = $this->input->post('pk', true);
             if(isset($input_profession)){
                 $rules = array(
                     array('field' => 'visa_profession','label' => 'visa profession', 'rules' => 'required|max_length[255]|min_length[2]|encode_php_tags|trim'));
@@ -880,11 +888,7 @@ class Admin_panel extends CI_Controller
                 }
 
 
-            }
-
-            $pk = $this->input->post('pk', true);
-
-            if(isset($pk)){
+            }elseif(isset($pk)){
                 $rules = array(
                     array('field' => 'value','label' => 'Value', 'rules' => 'required|max_length[255]|min_length[2]|encode_php_tags|trim'));
                 //validation run
@@ -903,9 +907,7 @@ class Admin_panel extends CI_Controller
                     header('HTTP/1.0 400 Bad Request', true, 400);
                     echo validation_errors();
                 }
-            }
-            $profession_delete = $this->input->post('vp_id', true);
-            if(isset($profession_delete)){
+            }elseif(isset($profession_delete)){
 
                 for ($i = 0; $i < sizeof($profession_delete); $i++) {
                     $id = $profession_delete[$i];
@@ -921,6 +923,8 @@ class Admin_panel extends CI_Controller
                     $data['success_del'] = 'yes';
                     $this->load->view('admin_panel/visa_profession', $data);
                 }
+            }else{
+                $this->load->view('admin_panel/visa_profession', $data);
             }
 
         }else{
@@ -1047,9 +1051,9 @@ class Admin_panel extends CI_Controller
         $this->load->model('iqama_profession');
         $data['iqama_professions'] = $this->iqama_profession->getRecord();
         if (filter_input_array(INPUT_POST)) {
-
+            $pk = $this->input->post('pk', true);
             $input_profession = $this->input->post('iqama_profession', true);
-
+            $profession_delete = $this->input->post('ip_id', true);
             if(isset($input_profession)){
                 $rules = array(
                     array('field' => 'iqama_profession','label' => 'Iqama profession', 'rules' => 'required|max_length[255]|min_length[2]|encode_php_tags|trim'));
@@ -1071,11 +1075,7 @@ class Admin_panel extends CI_Controller
                 }
 
 
-            }
-
-            $pk = $this->input->post('pk', true);
-
-            if(isset($pk)){
+            }elseif(isset($pk)){
                 $rules = array(
                     array('field' => 'value','label' => 'Value', 'rules' => 'required|max_length[255]|min_length[2]|encode_php_tags|trim'));
                 //validation run
@@ -1094,9 +1094,7 @@ class Admin_panel extends CI_Controller
                     header('HTTP/1.0 400 Bad Request', true, 400);
                     echo validation_errors();
                 }
-            }
-            $profession_delete = $this->input->post('ip_id', true);
-            if(isset($profession_delete)){
+            }elseif(isset($profession_delete)){
 
                 for ($i = 0; $i < sizeof($profession_delete); $i++) {
                     $id = $profession_delete[$i];

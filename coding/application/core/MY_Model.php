@@ -248,5 +248,32 @@ class MY_Model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+
+    public function sql_join_multi($where_value = false, $array){
+        $this->db->select('*');
+
+        $this->db->from($this::DB_TableName);
+
+        foreach($array as $key => $value){
+            $this->db->join($key, $value, 'inner');
+        }
+
+        if($where_value){
+            $this->db->where($where_value);
+        }
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    public function sql_join_left($where_value, $second_table, $join_where){
+        $this->db->select('*');
+        $this->db->from($this::DB_TableName);
+        $this->db->join($second_table, $join_where, 'left');
+
+        if($where_value){
+            $this->db->where($where_value);
+        }
+        $query = $this->db->get();
+        return $query->result_array();
+    }
  
 } ?>
