@@ -122,7 +122,7 @@ if($loggedInUser == 'admin'){
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-user"></i>
                                         </span>
-                                        <input type="text" class="form-control" name="fname" placeholder="jhone Doe"
+                                        <input type="text" class="form-control" name="fname" placeholder="Enter Name"
                                                <?php if ($_POST) { ?> value="<?php echo $_POST['fname']; ?>" <?php } ?>
                                                />
                                     </div>
@@ -146,7 +146,7 @@ if($loggedInUser == 'admin'){
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-user"></i>
                                         </span>
-                                          <input type="text" class="form-control" name="lname" placeholder="Julian Lacoste"
+                                          <input type="text" class="form-control" name="lname" placeholder="Enter Last Name"
                                               <?php if ($_POST) { ?> value="<?php echo $_POST['lname']; ?>" <?php } ?>
                                           />
                                       </div>
@@ -282,7 +282,7 @@ if($loggedInUser == 'admin'){
                                         <span class="input-group-addon">
                                             <i class="fa fa-book"></i>
                                         </span>
-                                            <input type="text" class="form-control" name="education" placeholder="address"
+                                            <input type="text" class="form-control" name="education" placeholder="Education"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['education']; ?>" <?php } ?>
                                             />
                                         </div>
@@ -305,7 +305,7 @@ if($loggedInUser == 'admin'){
                                         <span class="input-group-addon">
                                             <i class="fa fa-chevron-right"></i>
                                         </span>
-                                            <input type="text" class="form-control" name="reference" placeholder="enter name"
+                                            <input type="text" class="form-control" name="reference" placeholder="enter  name"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['reference']; ?>" <?php } ?>
                                             />
                                         </div>
@@ -325,7 +325,7 @@ if($loggedInUser == 'admin'){
                                         <span class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </span>
-                                            <input type="text" class="form-control date" name="date_join" placeholder="address"
+                                            <input type="text" class="form-control date" name="date_join" placeholder="Join Date"
                                                 <?php if ($_POST) { ?> value="<?php echo $_POST['date_join']; ?>" <?php } ?>
                                             />
                                         </div>

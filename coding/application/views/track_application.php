@@ -44,7 +44,7 @@ if($loggedInUser == 'admin'){
                                                
                                                 <div class="input-group">
                                                     <span class="input-group-addon">
-                                                        <i class="glyphicon glyphicon-user"></i>
+                                                        <i class="glyphicon glyphicon-asterisk"></i>
                                                     </span> 
                                                     <input type="text" class="form-control" name="cnic" placeholder=" CNIC Number"
                                                            <?php if ($_POST) { ?> value="<?php echo $_POST['cnic']; ?>" <?php } ?>

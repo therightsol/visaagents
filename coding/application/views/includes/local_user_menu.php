@@ -13,14 +13,7 @@
     </div>
     <div class="navbar-collapse collapse">
       <!-- Stat Search -->
-      <div class="search-side">
-        <a class="show-search"><i class="fa fa-search"></i></a>
-        <div class="search-form">
-          <form autocomplete="off" role="search" method="get" class="searchform" action="#">
-            <input type="text" value="" name="s" id="s" placeholder="Search the site...">
-          </form>
-        </div><!-- test on line       -->
-      </div>
+
       <!-- End Search -->
       <!-- Start Navigation List -->
       <ul class="nav navbar-nav navbar-right">
@@ -32,23 +25,76 @@
         </li>
 
         <li>
+          <a<?php if(isset($activeMenu)){ if($activeMenu == 'worker'){ echo 'class="active"'; }} ?>
+              href="#">Worker
+          </a>
+          <ul class="dropdown">
+            <li><a href="<?php echo $root; ?>add_worker">Add Worker</a></li>
+            <li><a href="<?php echo $root; ?>workers">View Worker</a></li>
+            <li><a href="<?php echo $root; ?>worker_application">Application Status</a></li>
+          </ul>
+        </li>
+        <li>
           <a
-              <?php if(isset($activeMenu)){ if($activeMenu == 'add_visa'){ echo 'class="active"'; }} ?>
-              href="<?php echo $root; ?>Add_visa">Add Visa
+              <?php if (isset($activeMenu)) {
+                if ($activeMenu == 'terms') {
+                  echo 'class="active"';
+                }
+              } ?>
+              href="<?php echo $root; ?>Terms_and_conditions"> Terms
           </a>
         </li>
         <li>
-          <a href="<?php echo $root; ?>portfolio">Portfolio</a>
-          <ul class="dropdown">
-            <li><a href="#">2 Columns</a>
-            </li>
-            <li><a href="#">3 Columns</a>
-            </li>
-            <li><a href="#">4 Columns</a>
-            </li>
-            <li><a href="#">Single Project</a>
+
+          <a
+              <?php if (isset($activeMenu)) {
+                if ($activeMenu == 'Aboutus') {
+                  echo 'class="active"';
+                }
+              } ?>
+              href="#">
+            About Us
+          </a>
+          <ul>
+            <li class="dropdown">
+              <a href="<?php echo $root; ?>Visa_Procedure">
+                Services
+              </a>
             </li>
           </ul>
+
+
+
+        </li>
+        <li>
+          <a
+              <?php if (isset($activeMenu)) {
+                if ($activeMenu == 'jobs') {
+                  echo 'class="active"';
+                }
+              } ?>
+              href="<?php echo $root; ?>Jobs">Jobs
+          </a>
+        </li>
+        <li>
+          <a
+              <?php if (isset($activeMenu)) {
+                if ($activeMenu == 'jobs') {
+                  echo 'class="active"';
+                }
+              } ?>
+              href="<?php echo $root; ?>Jobs">Jobs
+          </a>
+        </li>
+        <li>
+          <a
+              <?php if (isset($activeMenu)) {
+                if ($activeMenu == 'contact') {
+                  echo 'class="active"';
+                }
+              } ?>
+              href="<?php echo $root; ?>Contact">Contact Us
+          </a>
         </li>
         <li>
           <a href="<?php echo $root; ?>Logout">Logout</a>
@@ -66,23 +112,9 @@
 
 
     </li>
-    <li>
-      <a href="<?php echo $root; ?>about">Add Worker</a>
-    </li>
 
-    <li>
-      <a href="<?php echo $root; ?>portfolio">Portfolio</a>
-      <ul class="dropdown">
-        <li><a href="#">2 Columns</a>
-        </li>
-        <li><a href="#">3 Columns</a>
-        </li>
-        <li><a href="#">4 Columns</a>
-        </li>
-        <li><a href="#">Single Project</a>
-        </li>
-      </ul>
-    </li>
+
+
 
   </ul>
   <!-- Mobile Menu End -->

@@ -126,8 +126,8 @@ class Register extends CI_Controller {
             . 'You are successfully registered. Kindly click on below link to activate your account. <br />'
             . '<a href="' . base_url() . 'verify/ve?uid=' . $encrypteUserName . '" > Click here to activate </a>'
             . '<br /><br /><br /><br /><br /><br /><br /><hr />'
-            . '<strong>ADMIN - HVC </strong><br /><br />'
-            . '<hr /> Thanks to choose our company <br /> <br />';
+            . '<strong> </strong><br /><br />'
+            . '<hr /> Thank you to choose our company <br /> <br />';
 
 
         $this->load->model('send_email');

@@ -53,9 +53,9 @@ if($loggedInUser == 'admin'){
                                                
                                                 <div class="input-group">
                                                     <span class="input-group-addon">
-                                                        <i class="glyphicon glyphicon-user"></i>
+                                                        <i class="glyphicon glyphicon-envelope"></i>
                                                     </span> 
-                                                    <input type="email" class="form-control" name="email" placeholder="mail@example.com" 
+                                                    <input type="email" class="form-control" name="email" placeholder="someone@example.com"
                                                            <?php if ($_POST) { ?> value="<?php echo $_POST['email']; ?>" <?php } ?>
                                                            />
                                                           

@@ -3,7 +3,7 @@
 
 class Send_email extends MY_Model {
 
-    public function send($user_name, $userEmail = false, $message, $subject, $type = false) {
+    public function send($user_name, $userEmail = false, $message, $subject = false, $type = false) {
         /*
          * Before loading this function
          *          load
@@ -43,6 +43,9 @@ class Send_email extends MY_Model {
             $type = $db_type;
         }
 
+        if($subject == false){
+            $subject = 'Visa Agents';
+        }
         //config email from database
 
         foreach ($record as $key => $value) {
