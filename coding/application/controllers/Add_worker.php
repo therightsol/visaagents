@@ -208,7 +208,7 @@ class Add_worker extends CI_Controller {
                 $this->payment_history->total_amount = $this->input->post('total_amount', true);
                 $this->payment_history->amount_received = $this->input->post('amount_received', true);
                 $this->payment_history->amount_remaining = $this->input->post('amount_remaining', true);
-                $this->payment_history->remaining_till = $this->input->post('remaining_till', true);
+                $this->payment_history->remaining_till = strtotime($this->input->post('remaining_till', true));
                 $this->payment_history->receiving_date = time();
                 $this->payment_history->currency_for_amount_received = $this->input->post('currency_for_amount_received', true);
                 $this->payment_history->currency_rate_amount_received = $this->input->post('currency_rate_amount_received', true);

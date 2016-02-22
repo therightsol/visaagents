@@ -19,7 +19,7 @@ class Admin_panel extends CI_Controller
 
         $this->load->model('user');
 
-        $data['allusers'] = $this->user->getSpecificColumnRec(false, ['is_admin' => 0]);
+        $data['allusers'] = $this->user->getSpecificColumnRec(false, ['is_admin' => 0, 'is_email_verified' => 1]);
 
         if (filter_input_array(INPUT_POST)) {
             if(!isset($_POST['del']) && !isset($_POST['app'])){
@@ -38,7 +38,7 @@ class Admin_panel extends CI_Controller
                     }
                 }
                 if ($successdell) {
-                    $data['allusers'] = $this->user->getSpecificColumnRec(false, ['is_admin' => 0]);
+                    $data['allusers'] = $this->user->getSpecificColumnRec(false, ['is_admin' => 0, 'is_email_verified' => 1]);
                     $data['success_del'] = 'yes';
                     $this->load->view('admin_panel/user', $data);
                 }
@@ -56,7 +56,7 @@ class Admin_panel extends CI_Controller
                 //echo '<tt><pre>'.var_export($updating_data,TRUE). '</tt></pre>'; exit;
                 $insert_batch = $this->user->updateBatch($updating_data, 'uid');
                 if ($insert_batch) {
-                    $data['allusers'] = $this->user->getSpecificColumnRec(false, ['is_admin' => 0]);
+                    $data['allusers'] = $this->user->getSpecificColumnRec(false, ['is_admin' => 0, 'is_email_verified' => 1]);
                     $data['success_approved'] = 'yes';
                     $this->load->view('admin_panel/user', $data);
                 }else{

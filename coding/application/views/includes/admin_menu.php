@@ -36,7 +36,7 @@
           </a>
           <ul class="dropdown">
             <li><a href="<?php echo $root; ?>add_worker">Add Worker</a></li>
-            <li><a href="<?php echo $root; ?>view_worker">View Worker</a></li>
+            <li><a href="<?php echo $root; ?>workers">View Worker</a></li>
             <li><a href="<?php echo $root; ?>worker_application">Application Status</a></li>
           </ul>
         </li>

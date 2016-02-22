@@ -127,8 +127,13 @@ class MY_Model extends CI_Model {
       public function getDateRange($columnName, $date1, $date2, $key = FALSE, $value = FALSE){
             $this->db->where($columnName.' >=', $date1);
             $this->db->where($columnName.'<=', $date2);
-            $query = $this->db->get_where($this::DB_TableName, array($key => $value));
-            if ($query->num_rows() > 0) {
+          if($key){
+              $query = $this->db->get_where($this::DB_TableName, array($key => $value));
+
+          }else{
+              $query = $this->db->get($this::DB_TableName);
+          }
+          if ($query->num_rows() > 0) {
                 return $query->result();
                 } else {
                 return false;
